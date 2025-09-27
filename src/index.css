@@ -9,46 +9,48 @@ All colors MUST be HSL.
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 210 11% 15%;
+    --foreground: 0 0% 8%;
 
     --card: 0 0% 100%;
-    --card-foreground: 210 11% 15%;
+    --card-foreground: 0 0% 8%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 210 11% 15%;
+    --popover-foreground: 0 0% 8%;
 
-    /* Webwise Africa Brand Colors */
-    --primary: 210 61% 22%; /* Deep Blue #1d3557 */
+    /* Black & White with Blue-Black Theme */
+    --primary: 220 100% 8%; /* Deep Blue-Black */
     --primary-foreground: 0 0% 100%;
-    --primary-light: 210 61% 35%;
-    --primary-dark: 210 61% 15%;
+    --primary-light: 220 50% 15%;
+    --primary-dark: 220 100% 4%;
 
-    --secondary: 210 25% 97%;
-    --secondary-foreground: 210 61% 22%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 8%;
 
-    --accent: 28 100% 48%; /* Orange #f77f00 */
+    --accent: 220 100% 50%; /* Bright Blue */
     --accent-foreground: 0 0% 100%;
-    --accent-light: 28 100% 60%;
-    --accent-dark: 28 100% 40%;
+    --accent-light: 220 100% 60%;
+    --accent-dark: 220 100% 40%;
 
-    --muted: 210 25% 97%;
-    --muted-foreground: 210 11% 46%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 210 25% 90%;
-    --input: 210 25% 90%;
-    --ring: 210 61% 22%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 220 100% 8%;
 
-    /* Custom design tokens */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-light)));
-    --gradient-accent: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--accent-light)));
-    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-dark)) 100%);
+    /* Custom design tokens with blue-black gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(220 100% 8%), hsl(220 50% 15%));
+    --gradient-accent: linear-gradient(135deg, hsl(220 100% 50%), hsl(220 100% 60%));
+    --gradient-hero: linear-gradient(135deg, hsl(220 100% 8%) 0%, hsl(220 100% 4%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(220 50% 8%) 0%, hsl(220 30% 12%) 100%);
+    --gradient-card-light: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(220 20% 98%) 100%);
     
-    --shadow-soft: 0 4px 20px -2px hsl(var(--primary) / 0.1);
-    --shadow-card: 0 8px 30px -6px hsl(var(--primary) / 0.15);
-    --shadow-accent: 0 4px 20px -2px hsl(var(--accent) / 0.25);
+    --shadow-soft: 0 4px 20px -2px hsl(220 100% 8% / 0.1);
+    --shadow-card: 0 8px 30px -6px hsl(220 100% 8% / 0.15);
+    --shadow-accent: 0 4px 20px -2px hsl(220 100% 50% / 0.25);
     
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
@@ -73,33 +75,33 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 210 11% 8%;
+    --background: 220 100% 4%;
     --foreground: 0 0% 98%;
 
-    --card: 210 11% 12%;
+    --card: 220 50% 8%;
     --card-foreground: 0 0% 98%;
 
-    --popover: 210 11% 12%;
+    --popover: 220 50% 8%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 0 0% 98%;
-    --primary-foreground: 210 61% 22%;
+    --primary: 0 0% 100%;
+    --primary-foreground: 220 100% 8%;
 
-    --secondary: 210 11% 15%;
+    --secondary: 220 30% 12%;
     --secondary-foreground: 0 0% 98%;
 
-    --muted: 210 11% 15%;
-    --muted-foreground: 210 11% 65%;
+    --muted: 220 30% 12%;
+    --muted-foreground: 0 0% 65%;
 
-    --accent: 28 100% 48%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 220 100% 60%;
+    --accent-foreground: 220 100% 4%;
 
     --destructive: 0 63% 31%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 210 11% 20%;
-    --input: 210 11% 20%;
-    --ring: 28 100% 48%;
+    --border: 220 30% 18%;
+    --input: 220 30% 18%;
+    --ring: 220 100% 60%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -128,6 +130,14 @@ All colors MUST be HSL.
 @layer components {
   .hero-gradient {
     background: var(--gradient-hero);
+  }
+  
+  .card-gradient {
+    background: var(--gradient-card);
+  }
+  
+  .card-gradient-light {
+    background: var(--gradient-card-light);
   }
   
   .card-shadow {

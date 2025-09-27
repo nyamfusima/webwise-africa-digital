@@ -129,10 +129,10 @@ const Home = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
               >
-                <Card className="h-full hover:shadow-lg transition-smooth card-shadow group hover:scale-105">
+                <Card className="h-full hover:shadow-lg transition-smooth card-shadow group hover:scale-105 card-gradient-light dark:card-gradient dark:text-white">
                   <CardContent className="p-8 text-center">
-                    <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-accent/10 transition-smooth">
-                      <service.icon className="w-8 h-8 text-primary group-hover:text-accent transition-smooth" />
+                    <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-accent/20 transition-smooth">
+                      <service.icon className="w-8 h-8 text-accent group-hover:text-accent-light transition-smooth" />
                     </div>
                     <h3 className="text-xl font-semibold text-primary mb-4">
                       {service.title}
@@ -195,7 +195,7 @@ const Home = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
               >
-                <Card className="h-full soft-shadow hover:card-shadow transition-smooth">
+                <Card className="h-full soft-shadow hover:card-shadow transition-smooth card-gradient-light dark:card-gradient dark:text-white">
                   <CardContent className="p-6">
                     <div className="flex mb-4">
                       {[...Array(testimonial.rating)].map((_, i) => (

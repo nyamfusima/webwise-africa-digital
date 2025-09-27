@@ -199,7 +199,7 @@ const About = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="space-y-6"
             >
-              <Card className="soft-shadow hover:card-shadow transition-smooth">
+                <Card className="soft-shadow hover:card-shadow transition-smooth card-gradient-light dark:card-gradient dark:text-white">
                 <CardContent className="p-6">
                   <div className="flex items-center space-x-4 mb-4">
                     <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center">
@@ -217,7 +217,7 @@ const About = () => {
                 </CardContent>
               </Card>
 
-              <Card className="soft-shadow hover:card-shadow transition-smooth">
+              <Card className="soft-shadow hover:card-shadow transition-smooth card-gradient-light dark:card-gradient dark:text-white">
                 <CardContent className="p-6">
                   <div className="flex items-center space-x-4 mb-4">
                     <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
@@ -235,7 +235,7 @@ const About = () => {
                 </CardContent>
               </Card>
 
-              <Card className="soft-shadow hover:card-shadow transition-smooth">
+              <Card className="soft-shadow hover:card-shadow transition-smooth card-gradient-light dark:card-gradient dark:text-white">
                 <CardContent className="p-6">
                   <div className="flex items-center space-x-4 mb-4">
                     <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center">
@@ -282,7 +282,7 @@ const About = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
-                <Card className="h-full text-center hover:shadow-lg transition-smooth group hover:scale-105">
+                <Card className="h-full text-center hover:shadow-lg transition-smooth group hover:scale-105 card-gradient-light dark:card-gradient dark:text-white">
                   <CardContent className="p-6">
                     <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-accent/10 transition-smooth">
                       <value.icon className="w-8 h-8 text-primary group-hover:text-accent transition-smooth" />
@@ -326,7 +326,7 @@ const About = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
               >
-                <Card className="text-center hover:shadow-lg transition-smooth card-shadow">
+                <Card className="text-center hover:shadow-lg transition-smooth card-shadow card-gradient-light dark:card-gradient dark:text-white">
                   <CardContent className="p-8">
                     <div className="w-24 h-24 bg-gradient-to-br from-primary to-accent rounded-full mx-auto mb-6 flex items-center justify-center">
                       <span className="text-2xl font-bold text-white">
@@ -392,7 +392,7 @@ const About = () => {
                     className={`flex items-center ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}
                   >
                     <div className={`w-1/2 ${index % 2 === 0 ? 'pr-8 text-right' : 'pl-8 text-left'}`}>
-                      <Card className="soft-shadow hover:card-shadow transition-smooth">
+                      <Card className="soft-shadow hover:card-shadow transition-smooth card-gradient-light dark:card-gradient dark:text-white">
                         <CardContent className="p-6">
                           <div className="text-2xl font-bold text-accent mb-2">
                             {achievement.year}

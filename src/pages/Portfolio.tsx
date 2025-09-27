@@ -159,7 +159,7 @@ const Portfolio = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                 >
-                  <Card className="group overflow-hidden hover:shadow-xl transition-smooth hover:scale-105 card-shadow">
+                  <Card className="group overflow-hidden hover:shadow-xl transition-smooth hover:scale-105 card-shadow card-gradient-light dark:card-gradient dark:text-white">
                     <div className="relative overflow-hidden">
                       <img
                         src={project.image}

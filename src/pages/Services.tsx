@@ -192,7 +192,7 @@ const Services = () => {
                     </Badge>
                   </div>
                 )}
-                <Card className={`h-full ${pkg.popular ? 'ring-2 ring-accent shadow-xl scale-105' : 'hover:shadow-lg'} transition-smooth`}>
+                <Card className={`h-full ${pkg.popular ? 'ring-2 ring-accent shadow-xl scale-105 card-gradient text-white' : 'hover:shadow-lg card-gradient-light dark:card-gradient dark:text-white'} transition-smooth`}>
                   <CardHeader className="text-center pb-4">
                     <CardTitle className="text-2xl font-bold text-primary">
                       {pkg.name}
@@ -239,7 +239,7 @@ const Services = () => {
             <h3 className="text-2xl font-bold text-primary mb-8">Additional Services</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
               {additionalServices.map((service) => (
-                <Card key={service.title} className="soft-shadow hover:card-shadow transition-smooth">
+                <Card key={service.title} className="soft-shadow hover:card-shadow transition-smooth card-gradient-light dark:card-gradient dark:text-white">
                   <CardContent className="p-6 text-center">
                     <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
                       <service.icon className="w-6 h-6 text-accent" />
@@ -280,7 +280,7 @@ const Services = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6 }}
               >
-                <Card className="overflow-hidden card-shadow">
+                <Card className="overflow-hidden card-shadow card-gradient-light dark:card-gradient dark:text-white">
                   <CardContent className="p-0">
                     <div className={`grid grid-cols-1 md:grid-cols-2 ${index % 2 === 1 ? 'md:grid-flow-col-dense' : ''}`}>
                       <div className={`p-8 ${index % 2 === 1 ? 'md:order-2' : ''}`}>

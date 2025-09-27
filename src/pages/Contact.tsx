@@ -159,7 +159,7 @@ const Contact = () => {
               transition={{ duration: 0.6 }}
               className="lg:col-span-2"
             >
-              <Card className="card-shadow">
+              <Card className="card-shadow card-gradient-light dark:card-gradient dark:text-white">
                 <CardHeader>
                   <CardTitle className="text-2xl text-primary flex items-center">
                     <Send className="w-6 h-6 mr-3 text-accent" />
@@ -299,7 +299,7 @@ const Contact = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="space-y-6"
             >
-              <Card className="soft-shadow">
+              <Card className="soft-shadow card-gradient-light dark:card-gradient dark:text-white">
                 <CardHeader>
                   <CardTitle className="text-xl text-primary">
                     Contact Information
@@ -421,7 +421,7 @@ const Contact = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
-                <Card className="h-full soft-shadow hover:card-shadow transition-smooth">
+                <Card className="h-full soft-shadow hover:card-shadow transition-smooth card-gradient-light dark:card-gradient dark:text-white">
                   <CardContent className="p-6">
                     <h3 className="font-semibold text-primary mb-3">
                       {faq.question}
