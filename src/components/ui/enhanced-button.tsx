@@ -14,13 +14,13 @@ const buttonVariants = cva(
         secondary: "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        // Black & White with Blue theme variants
-        hero: "bg-accent text-accent-foreground font-semibold shadow-lg hover:bg-accent-light hover:scale-105 transition-bounce accent-shadow",
-        "hero-outline": "border-2 border-accent text-accent bg-transparent font-semibold hover:bg-accent hover:text-accent-foreground hover:scale-105 transition-bounce",
+        // Professional Digital Agency variants
+        hero: "service-gradient text-white font-semibold shadow-lg hover:shadow-xl hover:scale-105 transition-smooth",
+        "hero-outline": "border-2 border-accent text-accent bg-transparent font-semibold hover:service-gradient hover:text-white hover:scale-105 transition-smooth",
         primary: "bg-primary text-primary-foreground font-semibold shadow-md hover:bg-primary-light hover:scale-105 transition-smooth",
         "primary-outline": "border-2 border-primary text-primary bg-transparent font-semibold hover:bg-primary hover:text-primary-foreground hover:scale-105 transition-smooth",
-        gradient: "bg-gradient-to-r from-primary via-primary-light to-accent text-white font-semibold shadow-lg hover:shadow-xl hover:scale-105 transition-bounce",
-        "card-gradient": "card-gradient text-white font-semibold shadow-lg hover:shadow-xl hover:scale-105 transition-smooth",
+        gradient: "service-gradient text-white font-semibold shadow-lg hover:shadow-xl hover:scale-105 transition-smooth",
+        "service-card": "service-gradient text-white font-semibold shadow-lg hover:elevated-shadow hover:scale-105 transition-smooth",
       },
       size: {
         default: "h-10 px-4 py-2",
