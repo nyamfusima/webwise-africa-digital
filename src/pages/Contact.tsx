@@ -100,7 +100,7 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email",
-      value: "hello@webwiseafrica.co.za",
+      value: "info@webwiseafrica.co.za",
       description: "We'll respond within 24 hours"
     },
     {

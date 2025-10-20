@@ -4,7 +4,8 @@ import { ArrowRight, Monitor, Palette, TrendingUp, CheckCircle, Star } from "luc
 import Layout from "@/components/Layout/Layout";
 import { Button } from "@/components/ui/enhanced-button";
 import { Card, CardContent } from "@/components/ui/card";
-import heroBg from "@/assets/hero-bg.jpg";
+import heroBg from "@/assets/hero-bg2.jpg";
+
 
 const Home = () => {
   const services = [
@@ -68,14 +69,14 @@ const Home = () => {
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-              Webwise Africa
+            
               <span className="block text-accent text-3xl md:text-4xl mt-2">
-                Building Digital Solutions for Small Businesses
+                Webwise Africa
               </span>
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-white/90 max-w-3xl mx-auto leading-relaxed">
               Professional web design, graphic design, and digital marketing services 
-              to help your South African business succeed online.
+              to help your business succeed online.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Button variant="hero" size="xl" asChild>

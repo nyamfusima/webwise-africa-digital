@@ -41,22 +41,10 @@ const About = () => {
 
   const teamMembers = [
     {
-      name: "Sarah Thompson",
-      role: "Founder & Creative Director",
-      description: "With over 8 years in digital design, Sarah leads our creative vision and ensures every project exceeds expectations.",
-      skills: ["Web Design", "Brand Strategy", "UI/UX"]
-    },
-    {
-      name: "Michael Chen",
+      name: "Sima Nyamfu",
       role: "Lead Developer",
       description: "Michael brings technical expertise and innovative solutions to create fast, secure, and scalable websites.",
       skills: ["Full-Stack Development", "E-commerce", "Performance Optimization"]
-    },
-    {
-      name: "Nomsa Mthembu",
-      role: "Digital Marketing Specialist",
-      description: "Nomsa helps businesses grow their online presence through strategic marketing and local market expertise.",
-      skills: ["SEO", "Social Media", "Content Strategy"]
     }
   ];
 
@@ -78,8 +66,8 @@ const About = () => {
     },
     {
       year: "2024",
-      title: "500+ Clients",
-      description: "Expanded to serve over 500 businesses across South Africa"
+      title: "60+ Clients",
+      description: "Expanded to serve over 60 businesses across South Africa"
     }
   ];
 
@@ -125,7 +113,7 @@ const About = () => {
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 soft-shadow">
                 <div className="grid grid-cols-2 gap-6 text-center">
                   <div>
-                    <div className="text-3xl font-bold text-accent mb-2">500+</div>
+                    <div className="text-3xl font-bold text-accent mb-2">60+</div>
                     <div className="text-white/80">Projects Completed</div>
                   </div>
                   <div>
@@ -172,7 +160,7 @@ const About = () => {
                   high-quality service standards.
                 </p>
                 <p>
-                  Today, we're proud to have helped over 500 businesses across South Africa 
+                  Today, we're proud to have helped overb 38 businesses across South Africa 
                   establish their digital presence, from local restaurants and retail stores 
                   to professional services and e-commerce ventures.
                 </p>
