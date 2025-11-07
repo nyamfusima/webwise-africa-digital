@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/enhanced-button";
 import { Card, CardContent } from "@/components/ui/card";
 import heroBg from "@/assets/bg-video.mp4";
 
-
 const Home = () => {
   const services = [
     {
@@ -52,16 +51,23 @@ const Home = () => {
 
   return (
     <Layout>
-      {/* Hero Section */}
-      <section 
-        className="relative min-h-screen flex items-center justify-center overflow-hidden"
-        style={{
-          backgroundImage: `linear-gradient(135deg, rgba(29, 53, 87, 0.9) 0%, rgba(29, 53, 87, 0.7) 100%), url(${heroBg})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundAttachment: 'fixed'
-        }}
-      >
+
+      {/* ✅ HERO SECTION WITH VIDEO BACKGROUND */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+
+        {/* Video Background */}
+        <video
+          src={heroBg}
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+
+        
+
+        {/* Hero Content */}
         <div className="container-width text-center text-white relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -69,15 +75,17 @@ const Home = () => {
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-            
-              <span className="block text-accent text-3xl md:text-4xl mt-2">
-                Webwise Africa
+
+              <span className="block text-white text-3xl md:text-4xl mt-2">
+                Digital Solutions That Grow Your Business
+
               </span>
             </h1>
-            <p className="text-xl md:text-2xl mb-8 text-white/90 max-w-3xl mx-auto leading-relaxed">
-              Professional web design, graphic design, and digital marketing services 
-              to help your business succeed online.
+
+            <p className="text-xl md:text-1xl mb-8 text-white/90 max-w-3xl mx-auto leading-relaxed">
+              Delivering Modern Web Experiences That Help Brands Succeed Online
             </p>
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Button variant="hero" size="xl" asChild>
                 <Link to="/contact" className="group">
@@ -85,6 +93,7 @@ const Home = () => {
                   <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </Button>
+
               <Button variant="hero-outline" size="xl" asChild>
                 <Link to="/portfolio">View Our Work</Link>
               </Button>
@@ -92,7 +101,7 @@ const Home = () => {
           </motion.div>
         </div>
 
-        {/* Floating Elements */}
+        {/* Floating UI elements */}
         <motion.div
           className="absolute top-20 right-10 w-16 h-16 bg-accent/20 rounded-full"
           animate={{ y: [0, -20, 0] }}
@@ -104,6 +113,8 @@ const Home = () => {
           transition={{ duration: 4, repeat: Infinity }}
         />
       </section>
+      {/* ✅ END HERO SECTION */}
+
 
       {/* Services Section */}
       <section className="section-padding bg-secondary/30">
@@ -246,6 +257,7 @@ const Home = () => {
           </motion.div>
         </div>
       </section>
+
     </Layout>
   );
 };
