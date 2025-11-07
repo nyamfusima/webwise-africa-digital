@@ -82,7 +82,7 @@ const Home = () => {
               </span>
             </h1>
 
-            <p className="text-xl md:text-1xl mb-8 text-white/90 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl md:text-1xl mb-8 text-white/90 max-w-1xl mx-auto leading-relaxed">
               Delivering Modern Web Experiences That Help Brands Succeed Online
             </p>
 
