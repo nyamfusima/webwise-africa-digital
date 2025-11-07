@@ -4,7 +4,7 @@ import { ArrowRight, Monitor, Palette, TrendingUp, CheckCircle, Star } from "luc
 import Layout from "@/components/Layout/Layout";
 import { Button } from "@/components/ui/enhanced-button";
 import { Card, CardContent } from "@/components/ui/card";
-import heroBg from "@/assets/hero-bg2.jpg";
+import heroBg from "@/assets/bg-video.mp4";
 
 
 const Home = () => {
