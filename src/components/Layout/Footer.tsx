@@ -5,20 +5,17 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-primary text-primary-foreground">
+    <footer className="bg-black text-white">
       <div className="container-width section-padding">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="md:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
-              <div className="w-8 h-8 bg-accent rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">WA</span>
-              </div>
               <span className="text-xl font-bold">Webwise Africa</span>
             </div>
-            <p className="text-primary-foreground/80 mb-4 leading-relaxed">
-              Building digital solutions for small businesses across South Africa. 
-              We specialize in web design, graphic design, and digital marketing 
+            <p className="text-white/80 mb-4 leading-relaxed">
+              Building digital solutions for small businesses across South Africa.
+              We specialize in web design, graphic design, and digital marketing
               to help your business grow online.
             </p>
             <div className="space-y-2">
@@ -41,19 +38,19 @@ const Footer = () => {
           <div>
             <h3 className="font-semibold mb-4">Quick Links</h3>
             <div className="space-y-2">
-              <Link to="/" className="block text-sm text-primary-foreground/80 hover:text-accent transition-smooth">
+              <Link to="/" className="block text-sm text-white/80 hover:text-accent transition-smooth">
                 Home
               </Link>
-              <Link to="/services" className="block text-sm text-primary-foreground/80 hover:text-accent transition-smooth">
+              <Link to="/services" className="block text-sm text-white/80 hover:text-accent transition-smooth">
                 Services
               </Link>
-              <Link to="/portfolio" className="block text-sm text-primary-foreground/80 hover:text-accent transition-smooth">
+              <Link to="/portfolio" className="block text-sm text-white/80 hover:text-accent transition-smooth">
                 Portfolio
               </Link>
-              <Link to="/about" className="block text-sm text-primary-foreground/80 hover:text-accent transition-smooth">
+              <Link to="/about" className="block text-sm text-white/80 hover:text-accent transition-smooth">
                 About
               </Link>
-              <Link to="/contact" className="block text-sm text-primary-foreground/80 hover:text-accent transition-smooth">
+              <Link to="/contact" className="block text-sm text-white/80 hover:text-accent transition-smooth">
                 Contact
               </Link>
             </div>
@@ -62,7 +59,7 @@ const Footer = () => {
           {/* Services */}
           <div>
             <h3 className="font-semibold mb-4">Services</h3>
-            <div className="space-y-2 text-sm text-primary-foreground/80">
+            <div className="space-y-2 text-sm text-white/80">
               <p>Web Design</p>
               <p>Graphic Design</p>
               <p>Digital Marketing</p>
@@ -73,8 +70,8 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-primary-light/20 mt-8 pt-8 text-center">
-          <p className="text-sm text-primary-foreground/80">
+        <div className="border-t border-white/10 mt-8 pt-8 text-center">
+          <p className="text-sm text-white/70">
             © {currentYear} Webwise Africa. All rights reserved. Building digital solutions for small businesses.
           </p>
         </div>

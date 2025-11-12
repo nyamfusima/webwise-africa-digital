@@ -19,15 +19,12 @@ const Navigation = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur-md border-b border-border">
+    <nav className="absolute top-0 left-0 w-full z-50 bg-transparent text-white">
       <div className="container-width">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">WA</span>
-            </div>
-            <span className="text-xl font-bold text-primary">Webwise Africa</span>
+            <span className="text-xl font-bold">Webwise Africa</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -36,10 +33,10 @@ const Navigation = () => {
               <Link
                 key={item.name}
                 to={item.path}
-                className={`text-sm font-medium transition-smooth relative ${
+                className={`text-sm font-medium transition-all relative ${
                   isActive(item.path)
                     ? "text-accent"
-                    : "text-muted-foreground hover:text-foreground"
+                    : "text-white hover:text-gray-300"
                 }`}
               >
                 {item.name}
@@ -53,14 +50,19 @@ const Navigation = () => {
                 )}
               </Link>
             ))}
-            <Button variant="hero" size="sm" asChild>
+            <Button
+              variant="hero"
+              size="sm"
+              asChild
+              className="bg-accent text-white hover:bg-accent/80"
+            >
               <Link to="/contact">Get Started</Link>
             </Button>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 text-muted-foreground hover:text-foreground transition-smooth"
+            className="md:hidden p-2 text-white hover:text-gray-300 transition-all"
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -76,7 +78,7 @@ const Navigation = () => {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden bg-background border-b border-border"
+            className="md:hidden bg-black border-b border-neutral-800 text-white"
           >
             <div className="container-width py-4 space-y-4">
               {navItems.map((item, index) => (
@@ -88,10 +90,10 @@ const Navigation = () => {
                 >
                   <Link
                     to={item.path}
-                    className={`block py-2 text-base font-medium transition-smooth ${
+                    className={`block py-2 text-base font-medium transition-all ${
                       isActive(item.path)
                         ? "text-accent"
-                        : "text-muted-foreground hover:text-foreground"
+                        : "text-white hover:text-gray-300"
                     }`}
                     onClick={() => setIsOpen(false)}
                   >
@@ -105,7 +107,12 @@ const Navigation = () => {
                 transition={{ delay: navItems.length * 0.1 }}
                 className="pt-2"
               >
-                <Button variant="hero" size="sm" className="w-full" asChild>
+                <Button
+                  variant="hero"
+                  size="sm"
+                  className="w-full bg-accent text-white hover:bg-accent/80"
+                  asChild
+                >
                   <Link to="/contact" onClick={() => setIsOpen(false)}>
                     Get Started
                   </Link>
