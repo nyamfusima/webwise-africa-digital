@@ -99,17 +99,7 @@ const Home = () => {
           </motion.div>
         </div>
 
-        {/* Floating UI elements */}
-        <motion.div
-          className="absolute top-20 right-10 w-16 h-16 bg-accent/20 rounded-full"
-          animate={{ y: [0, -20, 0] }}
-          transition={{ duration: 3, repeat: Infinity }}
-        />
-        <motion.div
-          className="absolute bottom-20 left-10 w-12 h-12 bg-white/10 rounded-full"
-          animate={{ y: [0, 20, 0] }}
-          transition={{ duration: 4, repeat: Infinity }}
-        />
+        
       </section>
       {/* ✅ END HERO SECTION */}
 

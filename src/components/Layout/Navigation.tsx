@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Facebook, Instagram, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/enhanced-button";
 import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa"; // ✅ Add your own icons here
 
@@ -21,72 +21,54 @@ const Navigation = () => {
 
   return (
     <nav className="absolute top-0 left-0 w-full z-50 bg-transparent text-white">
-      <div className="container mx-auto flex items-center justify-between h-16 px-4">
-        {/* Left: Navigation Links */}
-        <div className="hidden md:flex items-center space-x-8">
-          {navItems.map((item) => (
-            <Link
-              key={item.name}
-              to={item.path}
-              className={`text-sm font-medium transition-all relative ${
-                isActive(item.path)
-                  ? "text-accent"
-                  : "text-white hover:text-gray-300"
-              }`}
+      <div className="container-width">
+        <div className="flex items-center justify-between h-16">
+          {/* Logo */}
+          <Link to="/" className="flex items-center space-x-2">
+            <span className="text-xl font-bold">Webwise Africa</span>
+          </Link>
+
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-8">
+            {navItems.map((item) => (
+              <Link
+                key={item.name}
+                to={item.path}
+                className={`text-sm font-medium transition-all relative ${
+                  isActive(item.path)
+                    ? "text-accent"
+                    : "text-white hover:text-gray-300"
+                }`}
+              >
+                {item.name}
+                {isActive(item.path) && (
+                  <motion.div
+                    layoutId="activeNav"
+                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-accent rounded-full"
+                    initial={false}
+                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                  />
+                )}
+              </Link>
+            ))}
+            <Button
+              variant="hero"
+              size="sm"
+              asChild
+              className="bg-accent text-white hover:bg-accent/80"
             >
-              {item.name}
-              {isActive(item.path) && (
-                <motion.div
-                  layoutId="activeNav"
-                  className="absolute -bottom-1 left-0 right-0 h-0.5 bg-accent rounded-full"
-                  initial={false}
-                  transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                />
-              )}
-            </Link>
-          ))}
+              <Link to="/contact">Get Started</Link>
+            </Button>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="md:hidden p-2 text-white hover:text-gray-300 transition-all"
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
         </div>
-
-        {/* Center: Logo */}
-        <Link to="/" className="absolute left-1/2 transform -translate-x-1/2">
-          <span className="text-xl font-bold">Webwise Africa</span>
-        </Link>
-
-        {/* Right: Social Icons */}
-        <div className="hidden md:flex items-center space-x-4">
-          <a
-            href="https://facebook.com/webwiseafrica"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-accent transition"
-          >
-            <FaFacebook size={18} />
-          </a>
-          <a
-            href="https://instagram.com/webwiseafrica"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-accent transition"
-          >
-            <FaInstagram size={18} />
-          </a>
-          <a
-            href="https://linkedin.com/company/webwiseafrica"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-accent transition"
-          >
-            <FaLinkedin size={18} />
-          </a>
-        </div>
-
-        {/* Mobile Menu Button */}
-        <button
-          className="md:hidden p-2 text-white hover:text-gray-300 transition-all"
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
       </div>
 
       {/* Mobile Navigation */}
@@ -120,13 +102,23 @@ const Navigation = () => {
                   </Link>
                 </motion.div>
               ))}
-
-              {/* Social icons in mobile menu */}
-              <div className="flex justify-center space-x-6 pt-4">
-                <FaFacebook />
-                <FaInstagram />
-                <FaLinkedin />
-              </div>
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: navItems.length * 0.1 }}
+                className="pt-2"
+              >
+                <Button
+                  variant="hero"
+                  size="sm"
+                  className="w-full bg-accent text-white hover:bg-accent/80"
+                  asChild
+                >
+                  <Link to="/contact" onClick={() => setIsOpen(false)}>
+                    Get Started
+                  </Link>
+                </Button>
+              </motion.div>
             </div>
           </motion.div>
         )}

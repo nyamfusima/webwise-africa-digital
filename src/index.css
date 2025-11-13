@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ✅ Import Wix Madefor Display font */
+@import url('https://fonts.googleapis.com/css2?family=Wix+Madefor+Display:wght@400;500;600;700;800&display=swap');
+
 /* Webwise Africa Design System - Professional Digital Agency Theme
 All colors MUST be HSL.
 */
@@ -61,47 +64,32 @@ All colors MUST be HSL.
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
     --background: 220 100% 4%;
     --foreground: 0 0% 98%;
-
     --card: 220 50% 8%;
     --card-foreground: 0 0% 98%;
-
     --popover: 220 50% 8%;
     --popover-foreground: 0 0% 98%;
-
     --primary: 0 0% 100%;
     --primary-foreground: 220 100% 8%;
-
     --secondary: 220 30% 12%;
     --secondary-foreground: 0 0% 98%;
-
     --muted: 220 30% 12%;
     --muted-foreground: 0 0% 65%;
-
     --accent: 220 100% 60%;
     --accent-foreground: 220 100% 4%;
-
     --destructive: 0 63% 31%;
     --destructive-foreground: 0 0% 98%;
-
     --border: 220 30% 18%;
     --input: 220 30% 18%;
     --ring: 220 100% 60%;
@@ -121,69 +109,43 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
-  body {
-    @apply bg-background text-foreground font-sans antialiased;
-  }
-
   html {
     scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Wix Madefor Display', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Wix Madefor Display', sans-serif;
+    font-weight: 700;
+    @apply tracking-tight;
+  }
+
+  p, a, span, li, button {
+    font-family: 'Wix Madefor Display', sans-serif;
+    font-weight: 400;
   }
 }
 
 @layer components {
-  .hero-gradient {
-    background: var(--gradient-hero);
-  }
-  
-  .card-gradient {
-    background: var(--gradient-card);
-  }
-  
-  .card-gradient-light {
-    background: var(--gradient-card);
-  }
-  
-  .card-gradient-dark {
-    background: var(--gradient-card-dark);
-  }
-  
-  .service-gradient {
-    background: var(--gradient-service);
-  }
-  
-  .subtle-gradient {
-    background: var(--gradient-subtle);
-  }
-  
-  .card-shadow {
-    box-shadow: var(--shadow-card);
-  }
-  
-  .soft-shadow {
-    box-shadow: var(--shadow-soft);
-  }
-  
-  .accent-shadow {
-    box-shadow: var(--shadow-accent);
-  }
-  
-  .elevated-shadow {
-    box-shadow: var(--shadow-elevated);
-  }
-  
-  .transition-smooth {
-    transition: var(--transition-smooth);
-  }
-  
-  .transition-bounce {
-    transition: var(--transition-bounce);
-  }
-  
-  .section-padding {
-    @apply py-16 px-4 sm:px-6 lg:px-8;
-  }
-  
-  .container-width {
-    @apply max-w-7xl mx-auto;
-  }
+  .hero-gradient { background: var(--gradient-hero); }
+  .card-gradient { background: var(--gradient-card); }
+  .card-gradient-light { background: var(--gradient-card); }
+  .card-gradient-dark { background: var(--gradient-card-dark); }
+  .service-gradient { background: var(--gradient-service); }
+  .subtle-gradient { background: var(--gradient-subtle); }
+
+  .card-shadow { box-shadow: var(--shadow-card); }
+  .soft-shadow { box-shadow: var(--shadow-soft); }
+  .accent-shadow { box-shadow: var(--shadow-accent); }
+  .elevated-shadow { box-shadow: var(--shadow-elevated); }
+
+  .transition-smooth { transition: var(--transition-smooth); }
+  .transition-bounce { transition: var(--transition-bounce); }
+
+  .section-padding { @apply py-16 px-4 sm:px-6 lg:px-8; }
+  .container-width { @apply max-w-7xl mx-auto; }
 }
