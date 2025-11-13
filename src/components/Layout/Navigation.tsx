@@ -49,7 +49,7 @@ const Navigation = () => {
 
         {/* Center: Logo */}
         <Link to="/" className="absolute left-1/2 transform -translate-x-1/2">
-          <span className="text-xl font-bold">Webwise Africa</span>
+          <span className="text-2xl font-extrabold tracking-wide">Webwise Africa</span>
         </Link>
 
         {/* Right: Social Icons */}
