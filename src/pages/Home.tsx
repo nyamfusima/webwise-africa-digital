@@ -75,8 +75,9 @@ const Home = () => {
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-              <span className="block text-white text-3xl md:text-4xl mt-2">
+              <span className="block text-white text-6xl md:text-4xl mt-2 font-normal">
                 Digital Solutions That Grow Your Business
+
               </span>
             </h1>
 

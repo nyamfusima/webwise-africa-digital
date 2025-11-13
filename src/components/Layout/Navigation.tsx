@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/enhanced-button";
-import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter, FaWhatsapp } from "react-icons/fa"; // ✅ Add your own icons here
+import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter, FaWhatsapp } from "react-icons/fa"; 
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,7 +22,12 @@ const Navigation = () => {
   return (
     <nav className="absolute top-0 left-0 w-full z-50 bg-transparent text-white">
       <div className="container mx-auto flex items-center justify-between h-16 px-4">
-        {/* Left: Navigation Links */}
+        {/* Left: Logo */}
+        <Link to="/" className="text-2xl font-extrabold tracking-wide">
+          Webwise Africa
+        </Link>
+
+        {/* Center: Navigation Links (Desktop) */}
         <div className="hidden md:flex items-center space-x-8">
           {navItems.map((item) => (
             <Link
@@ -47,35 +52,15 @@ const Navigation = () => {
           ))}
         </div>
 
-        {/* Center: Logo */}
-        <Link to="/" className="absolute left-1/2 transform -translate-x-1/2">
-          <span className="text-2xl font-extrabold tracking-wide">Webwise Africa</span>
-        </Link>
-
         {/* Right: Social Icons */}
         <div className="hidden md:flex items-center space-x-4">
-          <a 
-          href="https://api.whatsapp.com/send/?phone=27681566790&text&type=phone_number&app_absent=0s"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:text-accent transition"
-          >
+          <a href="https://api.whatsapp.com/send/?phone=27681566790" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition">
             <FaWhatsapp size={18} />
           </a>
-          <a
-            href="https://x.com/webwiseafrica?s=21"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-accent transition"
-          >
+          <a href="https://x.com/webwiseafrica?s=21" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition">
             <FaTwitter size={18} />
           </a>
-          <a
-            href="https://https://www.instagram.com/webwiseafrica/?igsh=MTViNWx3MzA1cmF4bA%3D%3D"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-accent transition"
-          >
+          <a href="https://www.instagram.com/webwiseafrica/" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition">
             <FaInstagram size={18} />
           </a>
         </div>
@@ -123,9 +108,11 @@ const Navigation = () => {
 
               {/* Social icons in mobile menu */}
               <div className="flex justify-center space-x-6 pt-4">
-                <FaFacebook />
-                <FaInstagram />
-                <FaLinkedin />
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"><FaFacebook /></a>
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
+                <a href="https://x.com/webwiseafrica?s=21" target="_blank" rel="noopener noreferrer"><FaTwitter /></a>
+                <a href="https://api.whatsapp.com/send/?phone=27681566790" target="_blank" rel="noopener noreferrer"><FaWhatsapp /></a>
               </div>
             </div>
           </motion.div>
@@ -136,5 +123,6 @@ const Navigation = () => {
 };
 
 export default Navigation;
+
 
 
