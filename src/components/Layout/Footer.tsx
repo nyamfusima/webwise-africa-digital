@@ -72,7 +72,7 @@ const Footer = () => {
 
         <div className="border-t border-white/10 mt-8 pt-8 text-center">
           <p className="text-sm text-white/70">
-            © {currentYear} Webwise Africa. All rights reserved. Building digital solutions for small businesses.
+            © {currentYear} Webwise Africa. All rights reserved.
           </p>
         </div>
       </div>
