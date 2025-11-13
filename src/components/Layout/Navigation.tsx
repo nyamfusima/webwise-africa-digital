@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Facebook, Instagram, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/enhanced-button";
 
 const Navigation = () => {
@@ -22,12 +22,7 @@ const Navigation = () => {
     <nav className="absolute top-0 left-0 w-full z-50 bg-transparent text-white">
       <div className="container-width">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <Link to="/" className="flex items-center space-x-6">
-            <span className="text-xl font-bold">Webwise Africa</span>
-          </Link>
-
-          {/* Desktop Navigation */}
+          {/* Left Section - Nav Links */}
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
               <Link
@@ -50,6 +45,42 @@ const Navigation = () => {
                 )}
               </Link>
             ))}
+          </div>
+
+          {/* Center - Logo */}
+          <Link
+            to="/"
+            className="text-xl font-bold absolute left-1/2 transform -translate-x-1/2"
+          >
+            Webwise Africa
+          </Link>
+
+          {/* Right Section - Socials + Button */}
+          <div className="hidden md:flex items-center space-x-5">
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-accent transition-all"
+            >
+              <Facebook size={20} />
+            </a>
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-accent transition-all"
+            >
+              <Instagram size={20} />
+            </a>
+            <a
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-accent transition-all"
+            >
+              <Linkedin size={20} />
+            </a>
             <Button
               variant="hero"
               size="sm"
@@ -62,7 +93,7 @@ const Navigation = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 text-white hover:text-gray-300 transition-all"
+            className="md:hidden p-2 text-white hover:text-gray-300 transition-all ml-auto"
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -101,11 +132,39 @@ const Navigation = () => {
                   </Link>
                 </motion.div>
               ))}
+
+              <div className="flex justify-center space-x-6 pt-2">
+                <a
+                  href="https://facebook.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-accent transition-all"
+                >
+                  <Facebook size={22} />
+                </a>
+                <a
+                  href="https://instagram.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-accent transition-all"
+                >
+                  <Instagram size={22} />
+                </a>
+                <a
+                  href="https://linkedin.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-accent transition-all"
+                >
+                  <Linkedin size={22} />
+                </a>
+              </div>
+
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: navItems.length * 0.1 }}
-                className="pt-2"
+                className="pt-4"
               >
                 <Button
                   variant="hero"
