@@ -17,6 +17,9 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
 const Services = () => {
+  const cardsGradient =
+    "bg-gradient-to-br from-black via-[#0A1A3A] to-blue-700 text-white shadow-xl";
+
   const packages = [
     {
       name: "Starter",
@@ -31,7 +34,6 @@ const Services = () => {
         "1 Month Support"
       ],
       popular: false,
-      color: "primary"
     },
     {
       name: "Standard", 
@@ -47,7 +49,6 @@ const Services = () => {
         "Content Management System"
       ],
       popular: true,
-      color: "accent"
     },
     {
       name: "Business",
@@ -64,7 +65,6 @@ const Services = () => {
         "Advanced Analytics"
       ],
       popular: false,
-      color: "primary"
     }
   ];
 
@@ -133,21 +133,23 @@ const Services = () => {
 
   return (
     <Layout>
-      {/* Hero Section */}
-      <section className="section-padding bg-gradient-to-br from-primary via-primary-light to-accent text-white">
+      {/* HERO SECTION */}
+      <section className="section-padding bg-gradient-to-br from-black via-[#0A1A3A] to-blue-700 text-white">
         <div className="container-width text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+            <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-12">
               Our Services & Packages
             </h1>
+
             <p className="text-xl mb-8 text-white/90 max-w-3xl mx-auto">
-              Professional digital solutions designed specifically for South African small businesses. 
+              Professional digital solutions designed specifically for South African small businesses.
               Choose the package that fits your needs and budget.
             </p>
+
             <Button variant="hero-outline" size="lg" asChild>
               <Link to="/contact">
                 Get Custom Quote
@@ -158,7 +160,7 @@ const Services = () => {
         </div>
       </section>
 
-      {/* Packages Section */}
+      {/* PACKAGES SECTION */}
       <section className="section-padding bg-background">
         <div className="container-width">
           <motion.div
@@ -184,39 +186,44 @@ const Services = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="relative"
               >
+                {/* Popular badge */}
                 {pkg.popular && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
-                    <Badge className="bg-accent text-accent-foreground px-4 py-1 text-sm font-semibold">
+                    <Badge className="bg-blue-500 px-4 py-1 text-sm font-semibold">
                       <Star className="w-4 h-4 mr-1" />
                       Most Popular
                     </Badge>
                   </div>
                 )}
-                <Card className={`h-full ${pkg.popular ? 'ring-2 ring-accent shadow-xl scale-105 card-gradient text-white' : 'hover:shadow-lg card-gradient-light dark:card-gradient dark:text-white'} transition-smooth`}>
+
+                {/* CARD */}
+                <Card className={`${cardsGradient} transition-smooth rounded-xl`}>
                   <CardHeader className="text-center pb-4">
-                    <CardTitle className="text-2xl font-bold text-primary">
+                    <CardTitle className="text-2xl font-bold">
                       {pkg.name}
                     </CardTitle>
-                    <div className="text-3xl font-bold text-accent mb-2">
+
+                    <div className="text-3xl font-bold text-blue-300 mb-2">
                       {pkg.price}
                     </div>
-                    <p className="text-muted-foreground">
-                      {pkg.description}
-                    </p>
+
+                    <p className="text-blue-200">{pkg.description}</p>
                   </CardHeader>
+
                   <CardContent className="pt-4">
                     <div className="space-y-3 mb-8">
                       {pkg.features.map((feature) => (
                         <div key={feature} className="flex items-center space-x-3">
-                          <CheckCircle className="w-5 h-5 text-accent flex-shrink-0" />
+                          <CheckCircle className="w-5 h-5 text-blue-300 flex-shrink-0" />
                           <span className="text-sm">{feature}</span>
                         </div>
                       ))}
                     </div>
-                    <Button 
-                      variant={pkg.popular ? "hero" : "primary-outline"} 
-                      size="lg" 
-                      className="w-full" 
+
+                    <Button
+                      variant="hero"
+                      size="lg"
+                      className="w-full"
                       asChild
                     >
                       <Link to="/contact">
@@ -229,7 +236,7 @@ const Services = () => {
             ))}
           </div>
 
-          {/* Additional Services */}
+          {/* ADDITIONAL SERVICES */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -237,16 +244,29 @@ const Services = () => {
             className="text-center"
           >
             <h3 className="text-2xl font-bold text-primary mb-8">Additional Services</h3>
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
               {additionalServices.map((service) => (
-                <Card key={service.title} className="soft-shadow hover:card-shadow transition-smooth card-gradient-light dark:card-gradient dark:text-white">
+                <Card
+                  key={service.title}
+                  className={`${cardsGradient} p-6 text-center rounded-xl`}
+                >
                   <CardContent className="p-6 text-center">
-                    <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <service.icon className="w-6 h-6 text-accent" />
+                    <div className="w-12 h-12 bg-blue-600/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <service.icon className="w-6 h-6 text-blue-300" />
                     </div>
-                    <h4 className="font-semibold text-primary mb-2">{service.title}</h4>
-                    <p className="text-2xl font-bold text-accent mb-2">{service.price}</p>
-                    <p className="text-sm text-muted-foreground">{service.description}</p>
+
+                    <h4 className="font-semibold text-white mb-2">
+                      {service.title}
+                    </h4>
+
+                    <p className="text-2xl font-bold text-blue-300 mb-2">
+                      {service.price}
+                    </p>
+
+                    <p className="text-sm text-blue-200">
+                      {service.description}
+                    </p>
                   </CardContent>
                 </Card>
               ))}
@@ -255,7 +275,7 @@ const Services = () => {
         </div>
       </section>
 
-      {/* Detailed Services */}
+      {/* DETAILED SERVICES */}
       <section className="section-padding bg-secondary/30">
         <div className="container-width">
           <motion.div
@@ -280,36 +300,44 @@ const Services = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6 }}
               >
-                <Card className="overflow-hidden card-shadow card-gradient-light dark:card-gradient dark:text-white">
+                <Card className={`${cardsGradient} overflow-hidden rounded-xl`}>
                   <CardContent className="p-0">
-                    <div className={`grid grid-cols-1 md:grid-cols-2 ${index % 2 === 1 ? 'md:grid-flow-col-dense' : ''}`}>
-                      <div className={`p-8 ${index % 2 === 1 ? 'md:order-2' : ''}`}>
-                        <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
-                          <service.icon className="w-8 h-8 text-primary" />
+                    <div className={`grid grid-cols-1 md:grid-cols-2 ${index % 2 === 1 ? "md:grid-flow-col-dense" : ""}`}>
+
+                      {/* LEFT SIDE */}
+                      <div className={`p-8 ${index % 2 === 1 ? "md:order-2" : ""}`}>
+                        <div className="w-16 h-16 bg-blue-600/20 rounded-full flex items-center justify-center mb-6">
+                          <service.icon className="w-8 h-8 text-blue-300" />
                         </div>
-                        <h3 className="text-2xl font-bold text-primary mb-4">
+
+                        <h3 className="text-2xl font-bold text-white mb-4">
                           {service.title}
                         </h3>
-                        <p className="text-muted-foreground mb-6 text-lg">
+
+                        <p className="text-blue-200 mb-6 text-lg">
                           {service.description}
                         </p>
-                        <Button variant="primary" asChild>
+
+                        <Button variant="hero" asChild>
                           <Link to="/contact">
                             Learn More
                             <ArrowRight className="ml-2" />
                           </Link>
                         </Button>
                       </div>
-                      <div className={`bg-secondary/50 p-8 ${index % 2 === 1 ? 'md:order-1' : ''}`}>
-                        <h4 className="font-semibold text-primary mb-4 flex items-center">
-                          <Zap className="w-5 h-5 mr-2 text-accent" />
+
+                      {/* RIGHT SIDE */}
+                      <div className={`bg-black/40 p-8 ${index % 2 === 1 ? "md:order-1" : ""}`}>
+                        <h4 className="font-semibold text-white mb-4 flex items-center">
+                          <Zap className="w-5 h-5 mr-2 text-blue-300" />
                           What's Included:
                         </h4>
+
                         <div className="space-y-3">
                           {service.features.map((feature) => (
                             <div key={feature} className="flex items-center space-x-3">
-                              <CheckCircle className="w-4 h-4 text-accent flex-shrink-0" />
-                              <span className="text-sm">{feature}</span>
+                              <CheckCircle className="w-4 h-4 text-blue-300 flex-shrink-0" />
+                              <span className="text-sm text-blue-100">{feature}</span>
                             </div>
                           ))}
                         </div>
@@ -323,7 +351,7 @@ const Services = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* CTA */}
       <section className="section-padding bg-primary text-primary-foreground">
         <div className="container-width text-center">
           <motion.div
@@ -334,9 +362,11 @@ const Services = () => {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Ready to Get Started?
             </h2>
+
             <p className="text-xl mb-8 text-primary-foreground/90 max-w-2xl mx-auto">
               Let's discuss your project and find the perfect solution for your business needs.
             </p>
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button variant="hero" size="xl" asChild>
                 <Link to="/contact">
@@ -344,6 +374,7 @@ const Services = () => {
                   <ArrowRight className="ml-2" />
                 </Link>
               </Button>
+
               <Button variant="hero-outline" size="xl" asChild>
                 <Link to="/portfolio">View Our Work</Link>
               </Button>
