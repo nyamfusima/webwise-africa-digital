@@ -52,8 +52,9 @@ const Home = () => {
   return (
     <Layout>
 
-      {/* ✅ HERO SECTION WITH VIDEO BACKGROUND */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* HERO SECTION WITH VIDEO + BLUE THEME */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
+        
         {/* Video Background */}
         <video
           src={heroBg}
@@ -64,10 +65,17 @@ const Home = () => {
           className="absolute inset-0 w-full h-full object-cover"
         />
 
-        {/* Overlay for contrast */}
-        <div className="absolute inset-0 bg-black/40" />
+        {/* Blue Glow Theme */}
+        <div className="absolute inset-0">
+          <div className="absolute top-0 -left-10 w-[450px] h-[450px] bg-blue-600 rounded-full mix-blend-soft-light filter blur-3xl opacity-40 animate-pulse"></div>
+          <div className="absolute top-10 -right-10 w-[420px] h-[420px] bg-cyan-500 rounded-full mix-blend-soft-light filter blur-3xl opacity-40 animate-pulse animation-delay-2000"></div>
+          <div className="absolute bottom-0 left-20 w-[400px] h-[400px] bg-blue-500 rounded-full mix-blend-soft-light filter blur-3xl opacity-30 animate-pulse animation-delay-4000"></div>
+        </div>
 
-        {/* Hero Content */}
+        {/* Dark Overlay */}
+        <div className="absolute inset-0 bg-black/60" />
+
+        {/* HERO CONTENT */}
         <div className="container-width text-center text-white relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -75,13 +83,12 @@ const Home = () => {
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-              <span className="block text-white text-6xl md:text-4xl mt-2 font-normal">
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-600">
                 Digital Solutions That Grow Your Business
-
               </span>
             </h1>
 
-            <p className="text-xl md:text-1xl mb-8 text-white/90 max-w-1xl mx-auto leading-relaxed">
+            <p className="text-xl md:text-lg mb-8 text-white/80 max-w-xl mx-auto leading-relaxed">
               Delivering Modern Web Experiences That Help Brands Succeed Online
             </p>
 
@@ -100,14 +107,16 @@ const Home = () => {
           </motion.div>
         </div>
 
-        
       </section>
-      {/* ✅ END HERO SECTION */}
 
+      {/* SERVICES SECTION WITH BLUE GLOW THEME */}
+      <section className="section-padding bg-black text-white relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute -right-10 top-20 w-[350px] h-[350px] bg-blue-600/20 blur-3xl rounded-full"></div>
+          <div className="absolute -left-10 bottom-10 w-[300px] h-[300px] bg-cyan-600/20 blur-3xl rounded-full"></div>
+        </div>
 
-      {/* ✅ SERVICES SECTION */}
-      <section className="section-padding bg-black text-white">
-        <div className="container-width">
+        <div className="container-width relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -117,7 +126,7 @@ const Home = () => {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Our Services
             </h2>
-            <p className="text-lg text-white/80 max-w-2xl mx-auto">
+            <p className="text-lg text-white/70 max-w-2xl mx-auto">
               Comprehensive digital solutions designed to grow your business online
             </p>
           </motion.div>
@@ -130,12 +139,12 @@ const Home = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
               >
-                <Card className="h-full bg-transparent border border-white/20 hover:border-accent transition-all duration-300 group hover:scale-105 rounded-2xl">
+                <Card className="h-full bg-white/5 backdrop-blur-md border border-white/10 hover:border-blue-500/40 hover:bg-white/10 transition-all duration-300 group hover:scale-105 rounded-2xl">
                   <CardContent className="p-8 text-center">
-                    <div className="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-accent/30 transition-all">
+                    <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-all">
                       <service.icon className="w-8 h-8 text-white" />
                     </div>
-                    <h3 className="text-xl font-semibold text-white mb-4">
+                    <h3 className="text-xl font-semibold mb-4">
                       {service.title}
                     </h3>
                     <p className="text-white/70 mb-6">
@@ -144,8 +153,8 @@ const Home = () => {
                     <div className="space-y-2">
                       {service.features.map((feature) => (
                         <div key={feature} className="flex items-center justify-center space-x-2 text-sm">
-                          <CheckCircle className="w-4 h-4 text-accent" />
-                          <span className="text-white/80">{feature}</span>
+                          <CheckCircle className="w-4 h-4 text-blue-400" />
+                          <span className="text-gray-300">{feature}</span>
                         </div>
                       ))}
                     </div>
@@ -155,26 +164,38 @@ const Home = () => {
             ))}
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-            className="text-center mt-12"
-          >
+          <div className="text-center mt-12">
             <Button variant="hero" size="lg" asChild>
               <Link to="/services">
                 View All Services
                 <ArrowRight className="ml-2" />
               </Link>
             </Button>
-          </motion.div>
+          </div>
         </div>
       </section>
 
-      {/* Testimonials and CTA stay unchanged */}
-      {/* ... (keep your existing testimonials and CTA sections as they are) ... */}
+      {/* The rest of your Testimonials + CTA stays unchanged */}
     </Layout>
   );
 };
 
 export default Home;
+
+/* Animations */
+<style>
+{`
+  @keyframes pulse {
+    0%, 100% { opacity: .4; }
+    50% { opacity: .7; }
+  }
+
+  .animate-pulse {
+    animation: pulse 4s ease-in-out infinite;
+  }
+
+  .animation-delay-2000 { animation-delay: 2s; }
+  .animation-delay-4000 { animation-delay: 4s; }
+`}
+</style>
+
