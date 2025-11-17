@@ -38,7 +38,6 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Basic validation
     if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
       toast({
         title: "Please fill in all required fields",
@@ -50,16 +49,12 @@ const Contact = () => {
 
     setIsSubmitting(true);
     
-    // Simulate form submission
     try {
       await new Promise(resolve => setTimeout(resolve, 2000));
-      
       toast({
         title: "Message sent successfully!",
         description: "We'll get back to you within 24 hours.",
       });
-      
-      // Reset form
       setFormData({
         name: "",
         email: "",
@@ -67,7 +62,6 @@ const Contact = () => {
         service: "",
         message: ""
       });
-      
     } catch (error) {
       toast({
         title: "Error sending message",
@@ -130,7 +124,7 @@ const Contact = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="section-padding bg-gradient-to-br from-primary via-primary-light to-accent text-white">
+      <section className="section-padding bg-gradient-to-br from-black via-[#0A1A3A] to-blue-700 text-white">
         <div className="container-width text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -149,7 +143,7 @@ const Contact = () => {
       </section>
 
       {/* Contact Form & Info Section */}
-      <section className="section-padding bg-background">
+      <section className="section-padding bg-black">
         <div className="container-width">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {/* Contact Form */}
@@ -159,13 +153,12 @@ const Contact = () => {
               transition={{ duration: 0.6 }}
               className="lg:col-span-2"
             >
-              <Card className="card-shadow card-gradient-light dark:card-gradient dark:text-white">
+              <Card className="rounded-xl border-0 bg-gradient-to-br from-black via-[#0A1A3A] to-blue-700 text-white shadow-xl">
                 <CardHeader>
-                  <CardTitle className="text-2xl text-primary flex items-center">
-                    <Send className="w-6 h-6 mr-3 text-accent" />
-                    Send Us a Message
+                  <CardTitle className="text-2xl flex items-center">
+                    <Send className="w-6 h-6 mr-3 text-blue-300" /> Send Us a Message
                   </CardTitle>
-                  <p className="text-muted-foreground">
+                  <p className="text-white/80">
                     Fill out the form below and we'll get back to you within 24 hours.
                   </p>
                 </CardHeader>
@@ -173,7 +166,7 @@ const Contact = () => {
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
-                        <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
+                        <label htmlFor="name" className="block text-sm font-medium mb-2 text-white">
                           Full Name *
                         </label>
                         <Input
@@ -184,11 +177,11 @@ const Contact = () => {
                           onChange={handleInputChange}
                           placeholder="Your full name"
                           required
-                          className="transition-smooth focus:ring-2 focus:ring-accent"
+                          className="bg-black text-white border-0 focus:ring-2 focus:ring-blue-400 transition-smooth"
                         />
                       </div>
                       <div>
-                        <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
+                        <label htmlFor="email" className="block text-sm font-medium mb-2 text-white">
                           Email Address *
                         </label>
                         <Input
@@ -199,14 +192,14 @@ const Contact = () => {
                           onChange={handleInputChange}
                           placeholder="your@email.com"
                           required
-                          className="transition-smooth focus:ring-2 focus:ring-accent"
+                          className="bg-black text-white border-0 focus:ring-2 focus:ring-blue-400 transition-smooth"
                         />
                       </div>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
-                        <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-2">
+                        <label htmlFor="phone" className="block text-sm font-medium mb-2 text-white">
                           Phone Number
                         </label>
                         <Input
@@ -216,11 +209,11 @@ const Contact = () => {
                           value={formData.phone}
                           onChange={handleInputChange}
                           placeholder="+27 XX XXX XXXX"
-                          className="transition-smooth focus:ring-2 focus:ring-accent"
+                          className="bg-black text-white border-0 focus:ring-2 focus:ring-blue-400 transition-smooth"
                         />
                       </div>
                       <div>
-                        <label htmlFor="service" className="block text-sm font-medium text-foreground mb-2">
+                        <label htmlFor="service" className="block text-sm font-medium mb-2 text-white">
                           Service Interested In
                         </label>
                         <select
@@ -228,20 +221,18 @@ const Contact = () => {
                           name="service"
                           value={formData.service}
                           onChange={handleInputChange}
-                          className="w-full px-3 py-2 border border-input bg-background rounded-lg transition-smooth focus:ring-2 focus:ring-accent focus:border-accent"
+                          className="w-full px-3 py-2 bg-black text-white border-0 rounded-lg focus:ring-2 focus:ring-blue-400 transition-smooth"
                         >
                           <option value="">Select a service</option>
                           {services.map((service) => (
-                            <option key={service} value={service}>
-                              {service}
-                            </option>
+                            <option key={service} value={service}>{service}</option>
                           ))}
                         </select>
                       </div>
                     </div>
 
                     <div>
-                      <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
+                      <label htmlFor="message" className="block text-sm font-medium mb-2 text-white">
                         Message *
                       </label>
                       <Textarea
@@ -252,7 +243,7 @@ const Contact = () => {
                         placeholder="Tell us about your project, goals, and any specific requirements..."
                         rows={6}
                         required
-                        className="transition-smooth focus:ring-2 focus:ring-accent resize-none"
+                        className="bg-black text-white border-0 resize-none focus:ring-2 focus:ring-blue-400 transition-smooth"
                       />
                     </div>
 
@@ -292,75 +283,53 @@ const Contact = () => {
               </Card>
             </motion.div>
 
-            {/* Contact Information */}
+            {/* Contact Info */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               className="space-y-6"
             >
-              <Card className="soft-shadow card-gradient-light dark:card-gradient dark:text-white">
-                <CardHeader>
-                  <CardTitle className="text-xl text-primary">
-                    Contact Information
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-6">
-                  {contactInfo.map((info) => (
-                    <div key={info.title} className="flex items-start space-x-4">
-                      <div className="w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0">
-                        <info.icon className="w-5 h-5 text-accent" />
-                      </div>
-                      <div>
-                        <h3 className="font-semibold text-primary">{info.title}</h3>
-                        <p className="text-foreground font-medium">{info.value}</p>
-                        <p className="text-sm text-muted-foreground">{info.description}</p>
-                      </div>
+              {contactInfo.map((info) => (
+                <Card key={info.title} className="bg-gradient-to-br from-black via-[#0A1A3A] to-blue-700 text-white rounded-xl border-0 shadow-xl">
+                  <CardContent className="flex items-start space-x-4">
+                    <div className="w-10 h-10 bg-blue-900/30 rounded-full flex items-center justify-center">
+                      <info.icon className="w-5 h-5 text-blue-300" />
                     </div>
-                  ))}
-                </CardContent>
-              </Card>
+                    <div>
+                      <h3 className="font-semibold text-white">{info.title}</h3>
+                      <p className="font-medium">{info.value}</p>
+                      <p className="text-white/70 text-sm">{info.description}</p>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
 
-              <Card className="bg-accent text-accent-foreground soft-shadow">
-                <CardContent className="p-6">
+              <Card className="bg-gradient-to-br from-black via-[#0A1A3A] to-blue-700 text-white rounded-xl border-0 shadow-xl">
+                <CardContent>
                   <div className="flex items-center space-x-3 mb-4">
                     <CheckCircle className="w-6 h-6" />
                     <h3 className="font-semibold text-lg">Why Choose Us?</h3>
                   </div>
                   <ul className="space-y-2 text-sm">
-                    <li className="flex items-center space-x-2">
-                      <div className="w-1.5 h-1.5 bg-accent-foreground rounded-full"></div>
-                      <span>Free initial consultation</span>
-                    </li>
-                    <li className="flex items-center space-x-2">
-                      <div className="w-1.5 h-1.5 bg-accent-foreground rounded-full"></div>
-                      <span>Transparent pricing, no hidden costs</span>
-                    </li>
-                    <li className="flex items-center space-x-2">
-                      <div className="w-1.5 h-1.5 bg-accent-foreground rounded-full"></div>
-                      <span>24/7 support after launch</span>
-                    </li>
-                    <li className="flex items-center space-x-2">
-                      <div className="w-1.5 h-1.5 bg-accent-foreground rounded-full"></div>
-                      <span>Local South African expertise</span>
-                    </li>
+                    {["Free initial consultation", "Transparent pricing, no hidden costs", "24/7 support after launch", "Local South African expertise"].map(item => (
+                      <li key={item} className="flex items-center space-x-2">
+                        <div className="w-1.5 h-1.5 bg-blue-300 rounded-full"></div>
+                        <span>{item}</span>
+                      </li>
+                    ))}
                   </ul>
                 </CardContent>
               </Card>
 
-              <Card className="bg-primary text-primary-foreground soft-shadow">
-                <CardContent className="p-6 text-center">
-                  <MessageSquare className="w-12 h-12 mx-auto mb-4 text-accent" />
+              <Card className="bg-gradient-to-br from-black via-[#0A1A3A] to-blue-700 text-white rounded-xl border-0 shadow-xl text-center">
+                <CardContent className="p-6">
+                  <MessageSquare className="w-12 h-12 mx-auto mb-4 text-blue-300" />
                   <h3 className="font-semibold text-lg mb-2">Quick Response</h3>
-                  <p className="text-sm text-primary-foreground/90 mb-4">
+                  <p className="text-sm text-white/80 mb-4">
                     Need an immediate response? Send us a WhatsApp message for instant communication.
                   </p>
-                  <Button
-                    variant="hero"
-                    size="sm"
-                    onClick={handleWhatsApp}
-                    className="w-full"
-                  >
+                  <Button variant="hero" size="sm" onClick={handleWhatsApp} className="w-full">
                     <MessageSquare className="w-4 h-4 mr-2" />
                     Chat on WhatsApp
                   </Button>
@@ -372,7 +341,7 @@ const Contact = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="section-padding bg-secondary/30">
+      <section className="section-padding bg-gradient-to-br from-black via-[#0A1A3A] to-blue-700 text-white">
         <div className="container-width">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -380,40 +349,22 @@ const Contact = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Frequently Asked Questions
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-lg text-white/70 max-w-2xl mx-auto">
               Quick answers to common questions about our services and process
             </p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
             {[
-              {
-                question: "How long does it take to build a website?",
-                answer: "Most websites are completed within 2-4 weeks, depending on complexity and content requirements."
-              },
-              {
-                question: "Do you provide ongoing support?",
-                answer: "Yes! All our packages include support ranging from 1-6 months, with ongoing maintenance options available."
-              },
-              {
-                question: "Can you help with domain and hosting?",
-                answer: "Absolutely! We offer domain registration (R90/year) and reliable hosting (R200/month) services."
-              },
-              {
-                question: "Do you work with businesses outside South Africa?",
-                answer: "While we focus on South African businesses, we're open to working with international clients who appreciate our approach."
-              },
-              {
-                question: "What's included in your e-commerce packages?",
-                answer: "Our e-commerce solutions include payment gateway integration, inventory management, customer accounts, and marketing tools."
-              },
-              {
-                question: "Can I update my website myself?",
-                answer: "Yes! We build user-friendly content management systems that allow you to easily update content, images, and more."
-              }
+              { question: "How long does it take to build a website?", answer: "Most websites are completed within 2-4 weeks, depending on complexity and content requirements." },
+              { question: "Do you provide ongoing support?", answer: "Yes! All our packages include support ranging from 1-6 months, with ongoing maintenance options available." },
+              { question: "Can you help with domain and hosting?", answer: "Absolutely! We offer domain registration (R90/year) and reliable hosting (R200/month) services." },
+              { question: "Do you work with businesses outside South Africa?", answer: "While we focus on South African businesses, we're open to working with international clients who appreciate our approach." },
+              { question: "What's included in your e-commerce packages?", answer: "Our e-commerce solutions include payment gateway integration, inventory management, customer accounts, and marketing tools." },
+              { question: "Can I update my website myself?", answer: "Yes! We build user-friendly content management systems that allow you to easily update content, images, and more." }
             ].map((faq, index) => (
               <motion.div
                 key={faq.question}
@@ -421,14 +372,10 @@ const Contact = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
-                <Card className="h-full soft-shadow hover:card-shadow transition-smooth card-gradient-light dark:card-gradient dark:text-white">
+                <Card className="h-full rounded-xl border-0 shadow-xl bg-gradient-to-br from-black via-[#0A1A3A] to-blue-700 text-white">
                   <CardContent className="p-6">
-                    <h3 className="font-semibold text-primary mb-3">
-                      {faq.question}
-                    </h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      {faq.answer}
-                    </p>
+                    <h3 className="font-semibold text-lg mb-3">{faq.question}</h3>
+                    <p className="text-sm text-white/80 leading-relaxed">{faq.answer}</p>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -441,3 +388,4 @@ const Contact = () => {
 };
 
 export default Contact;
+
