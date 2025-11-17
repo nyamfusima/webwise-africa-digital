@@ -22,12 +22,13 @@ const Navigation = () => {
   return (
     <nav className="absolute top-0 left-0 w-full z-50 bg-transparent text-white">
       <div className="container mx-auto flex items-center justify-between h-16 px-4">
+        
         {/* Left: Logo */}
         <Link to="/" className="text-2xl font-extrabold tracking-wide">
           Webwise Africa
         </Link>
 
-        {/* Center: Navigation Links (Desktop) */}
+        {/* Center: Desktop Nav */}
         <div className="hidden md:flex items-center space-x-8">
           {navItems.map((item) => (
             <Link
@@ -40,6 +41,8 @@ const Navigation = () => {
               }`}
             >
               {item.name}
+
+              {/* Active underline animation */}
               {isActive(item.path) && (
                 <motion.div
                   layoutId="activeNav"
@@ -85,6 +88,7 @@ const Navigation = () => {
             className="md:hidden bg-black border-b border-neutral-800 text-white"
           >
             <div className="container mx-auto py-4 space-y-4">
+
               {navItems.map((item, index) => (
                 <motion.div
                   key={item.name}
@@ -106,7 +110,7 @@ const Navigation = () => {
                 </motion.div>
               ))}
 
-              {/* Social icons in mobile menu */}
+              {/* Mobile Social Icons */}
               <div className="flex justify-center space-x-6 pt-4">
                 <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"><FaFacebook /></a>
                 <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
@@ -114,6 +118,7 @@ const Navigation = () => {
                 <a href="https://x.com/webwiseafrica?s=21" target="_blank" rel="noopener noreferrer"><FaTwitter /></a>
                 <a href="https://api.whatsapp.com/send/?phone=27681566790" target="_blank" rel="noopener noreferrer"><FaWhatsapp /></a>
               </div>
+
             </div>
           </motion.div>
         )}
@@ -123,6 +128,7 @@ const Navigation = () => {
 };
 
 export default Navigation;
+
 
 
 

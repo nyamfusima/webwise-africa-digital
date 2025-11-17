@@ -126,7 +126,7 @@ const Home = () => {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Our Services
             </h2>
-            <p className="text-lg text-white/70 max-w-2xl mx-auto">
+            <p className="text-lg text-white max-w-2xl mx-auto">
               Comprehensive digital solutions designed to grow your business online
             </p>
           </motion.div>
