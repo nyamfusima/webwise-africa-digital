@@ -177,7 +177,7 @@ const Contact = () => {
                           onChange={handleInputChange}
                           placeholder="Your full name"
                           required
-                          className="bg-black text-white border-0 focus:ring-2 focus:ring-blue-400 transition-smooth"
+                          className="bg-white text-black border-0 focus:ring-2 focus:ring-blue-400 transition-smooth"
                         />
                       </div>
                       <div>
@@ -192,7 +192,7 @@ const Contact = () => {
                           onChange={handleInputChange}
                           placeholder="your@email.com"
                           required
-                          className="bg-black text-white border-0 focus:ring-2 focus:ring-blue-400 transition-smooth"
+                          className="bg-white text-black border-0 focus:ring-2 focus:ring-blue-400 transition-smooth"
                         />
                       </div>
                     </div>
@@ -209,7 +209,7 @@ const Contact = () => {
                           value={formData.phone}
                           onChange={handleInputChange}
                           placeholder="+27 XX XXX XXXX"
-                          className="bg-black text-white border-0 focus:ring-2 focus:ring-blue-400 transition-smooth"
+                          className="bg-white text-black border-0 focus:ring-2 focus:ring-blue-400 transition-smooth"
                         />
                       </div>
                       <div>
@@ -221,7 +221,7 @@ const Contact = () => {
                           name="service"
                           value={formData.service}
                           onChange={handleInputChange}
-                          className="w-full px-3 py-2 bg-black text-white border-0 rounded-lg focus:ring-2 focus:ring-blue-400 transition-smooth"
+                          className="w-full px-3 py-2 bg-white text-black border-0 rounded-lg focus:ring-2 focus:ring-blue-400 transition-smooth"
                         >
                           <option value="">Select a service</option>
                           {services.map((service) => (
@@ -243,7 +243,7 @@ const Contact = () => {
                         placeholder="Tell us about your project, goals, and any specific requirements..."
                         rows={6}
                         required
-                        className="bg-black text-white border-0 resize-none focus:ring-2 focus:ring-blue-400 transition-smooth"
+                        className="bg-white text-black border-0 resize-none focus:ring-2 focus:ring-blue-400 transition-smooth"
                       />
                     </div>
 
@@ -388,4 +388,5 @@ const Contact = () => {
 };
 
 export default Contact;
+
 
