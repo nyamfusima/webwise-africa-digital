@@ -18,7 +18,7 @@ import { Badge } from "@/components/ui/badge";
 
 const Services = () => {
   const cardsGradient =
-    "bg-gradient-to-br from-black via-[#0A1A3A] to-blue-700 text-white shadow-xl";
+    "bg-gradient-to-br from-black via-[#0A1A3A] to-blue-700 text-white shadow-xl border-0";
 
   const packages = [
     {
@@ -343,40 +343,40 @@ const Services = () => {
       </section>
 
       {/* CTA */}
-<section className="section-padding bg-black text-white">
-  <div className="container-width text-center">
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-    >
-      <h2 className="text-3xl md:text-4xl font-bold mb-4">
-        Ready to Get Started?
-      </h2>
+      <section className="section-padding bg-black text-white">
+        <div className="container-width text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Ready to Get Started?
+            </h2>
 
-      <p className="text-xl mb-8 text-white/90 max-w-2xl mx-auto">
-        Let's discuss your project and find the perfect solution for your business needs.
-      </p>
+            <p className="text-xl mb-8 text-white/90 max-w-2xl mx-auto">
+              Let's discuss your project and find the perfect solution for your business needs.
+            </p>
 
-      <div className="flex flex-col sm:flex-row gap-4 justify-center">
-        <Button variant="hero" size="xl" asChild>
-          <Link to="/contact">
-            Get Free Quote
-            <ArrowRight className="ml-2" />
-          </Link>
-        </Button>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button variant="hero" size="xl" asChild>
+                <Link to="/contact">
+                  Get Free Quote
+                  <ArrowRight className="ml-2" />
+                </Link>
+              </Button>
 
-        <Button variant="hero-outline" size="xl" asChild>
-          <Link to="/portfolio">View Our Work</Link>
-        </Button>
-      </div>
-    </motion.div>
-  </div>
-</section>
-
+              <Button variant="hero-outline" size="xl" asChild>
+                <Link to="/portfolio">View Our Work</Link>
+              </Button>
+            </div>
+          </motion.div>
+        </div>
+      </section>
     </Layout>
   );
 };
 
 export default Services;
+
 
