@@ -11,9 +11,9 @@ const Navigation = () => {
 
   const navItems = [
     { name: "Home", path: "/" },
-    { name: "Services", path: "/services" },
-    { name: "Portfolio", path: "/portfolio" },
     { name: "About", path: "/about" },
+    { name: "Portfolio", path: "/portfolio" },
+    { name: "Services", path: "/services" },
     { name: "Contact", path: "/contact" },
   ];
 

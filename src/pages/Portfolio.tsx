@@ -95,10 +95,17 @@ const Portfolio = () => {
     }
   };
 
+  const stats = [
+    { number: 500, label: "Projects Completed" },
+    { number: 200, label: "Happy Clients" },
+    { number: 99, label: "Client Satisfaction" },
+    { number: 3, label: "Years Experience" }
+  ];
+
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="section-padding bg-gradient-to-br from-primary via-primary-light to-accent text-white">
+      <section className="section-padding bg-gradient-to-br from-black via-[#0A1A3A] to-blue-700 text-white">
         <div className="container-width text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -123,7 +130,7 @@ const Portfolio = () => {
       </section>
 
       {/* Filter Section */}
-      <section className="py-8 bg-secondary/30 border-b border-border">
+      <section className="py-8 bg-black border-b border-gray-800">
         <div className="container-width">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -132,22 +139,24 @@ const Portfolio = () => {
             className="flex flex-wrap justify-center gap-4"
           >
             {categories.map((category) => (
-              <Button
+              <button
                 key={category}
-                variant={selectedCategory === category ? "primary" : "outline"}
-                size="sm"
                 onClick={() => setSelectedCategory(category)}
-                className="transition-smooth"
+                className={`px-4 py-2 text-sm font-medium rounded-md transition-transform duration-300 ${
+                  selectedCategory === category
+                    ? "bg-gradient-to-r from-black via-[#0A1A3A] to-blue-700 text-white shadow-lg transform scale-105"
+                    : "bg-gradient-to-r from-black via-[#0A1A3A] to-blue-700 text-white hover:scale-105"
+                }`}
               >
                 {category}
-              </Button>
+              </button>
             ))}
           </motion.div>
         </div>
       </section>
 
       {/* Portfolio Grid */}
-      <section className="section-padding bg-background">
+      <section className="section-padding bg-black">
         <div className="container-width">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredProjects.map((project, index) => {
@@ -159,7 +168,7 @@ const Portfolio = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                 >
-                  <Card className="group overflow-hidden hover:shadow-xl transition-smooth hover:scale-105 card-shadow card-gradient-light dark:card-gradient dark:text-white">
+                  <Card className="group overflow-hidden hover:shadow-xl transition-smooth hover:scale-105 bg-black border-0 rounded-xl">
                     <div className="relative overflow-hidden">
                       <img
                         src={project.image}
@@ -179,28 +188,28 @@ const Portfolio = () => {
                         </Badge>
                         <TypeIcon className="w-5 h-5 text-accent" />
                       </div>
-                      <h3 className="text-xl font-semibold text-primary mb-3 group-hover:text-accent transition-smooth">
+                      <h3 className="text-xl font-semibold text-white mb-3 group-hover:text-accent transition-smooth">
                         {project.title}
                       </h3>
-                      <p className="text-muted-foreground mb-4 text-sm leading-relaxed">
+                      <p className="text-white/80 mb-4 text-sm leading-relaxed">
                         {project.description}
                       </p>
                       
                       <div className="space-y-3 mb-4">
                         <div className="flex flex-wrap gap-2">
                           {project.tags.map((tag) => (
-                            <Badge key={tag} variant="outline" className="text-xs">
+                            <Badge key={tag} variant="outline" className="text-xs text-white border-white">
                               {tag}
                             </Badge>
                           ))}
                         </div>
                         
-                        <div className="text-sm text-muted-foreground">
+                        <div className="text-sm text-white/70">
                           <p className="font-medium mb-1">Key Features:</p>
                           <ul className="space-y-1">
                             {project.features.slice(0, 2).map((feature) => (
                               <li key={feature} className="flex items-center space-x-2">
-                                <div className="w-1.5 h-1.5 bg-accent rounded-full"></div>
+                                <div className="w-1.5 h-1.5 bg-blue-500 rounded-full"></div>
                                 <span>{feature}</span>
                               </li>
                             ))}
@@ -208,7 +217,7 @@ const Portfolio = () => {
                         </div>
                       </div>
                       
-                      <Button variant="primary-outline" size="sm" className="w-full group-hover:bg-primary group-hover:text-primary-foreground">
+                      <Button variant="secondary" size="sm" className="w-full bg-white text-black border-0 hover:bg-gray-200">
                         View Details
                       </Button>
                     </CardContent>
@@ -221,7 +230,7 @@ const Portfolio = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="section-padding bg-secondary/30">
+      <section className="section-padding bg-black">
         <div className="container-width">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -229,21 +238,16 @@ const Portfolio = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               Our Impact
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-lg text-white/70 max-w-2xl mx-auto">
               Numbers that showcase our commitment to helping South African businesses succeed
             </p>
           </motion.div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {[
-              { number: "500+", label: "Projects Completed" },
-              { number: "200+", label: "Happy Clients" },
-              { number: "99%", label: "Client Satisfaction" },
-              { number: "3+", label: "Years Experience" }
-            ].map((stat, index) => (
+            {stats.map((stat, index) => (
               <motion.div
                 key={stat.label}
                 initial={{ opacity: 0, y: 30 }}
@@ -251,10 +255,13 @@ const Portfolio = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="text-center"
               >
-                <div className="text-3xl md:text-4xl font-bold text-accent mb-2">
-                  {stat.number}
-                </div>
-                <div className="text-muted-foreground">
+                <motion.div 
+                  className="text-3xl md:text-4xl font-bold text-blue-500 mb-2"
+                  animate={{ count: [0, stat.number] }}
+                >
+                  {stat.number}+
+                </motion.div>
+                <div className="text-white/80">
                   {stat.label}
                 </div>
               </motion.div>
@@ -264,7 +271,7 @@ const Portfolio = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="section-padding bg-primary text-primary-foreground">
+      <section className="section-padding bg-gradient-to-br from-black via-[#0A1A3A] to-blue-700 text-white">
         <div className="container-width text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -274,7 +281,7 @@ const Portfolio = () => {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Ready to Join Our Success Stories?
             </h2>
-            <p className="text-xl mb-8 text-primary-foreground/90 max-w-2xl mx-auto">
+            <p className="text-xl mb-8 text-white/90 max-w-2xl mx-auto">
               Let's create something amazing together. Your business deserves a digital presence that stands out.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
