@@ -16,7 +16,7 @@ import { Button } from "@/components/ui/enhanced-button";
 import { Card, CardContent } from "@/components/ui/card";
 
 const About = () => {
-  const cardsGradient = "bg-gradient-to-br from-black via-[#0A1A3A] to-blue-700 text-white shadow-xl";
+  const cardsGradient = "bg-gradient-to-br from-black via-[#0A1A3A] to-blue-700 text-white shadow-xl border-0";
 
   const values = [
     {
@@ -299,7 +299,6 @@ const About = () => {
           </motion.div>
 
           <div className="max-w-4xl mx-auto relative">
-            {/* Timeline line */}
             <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-blue-400/20 rounded-full"></div>
 
             <div className="space-y-12">
@@ -321,8 +320,7 @@ const About = () => {
                     </Card>
                   </div>
 
-                  {/* Timeline dot */}
-                  <div className="relative z-10 w-6 h-6 bg-blue-400 rounded-full border-4 border-black shadow-lg"></div>
+                  <div className="relative z-10 w-6 h-6 bg-blue-400 rounded-full shadow-lg"></div>
                   <div className="w-1/2"></div>
                 </motion.div>
               ))}
@@ -363,3 +361,4 @@ const About = () => {
 };
 
 export default About;
+
