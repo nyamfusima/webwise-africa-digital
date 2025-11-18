@@ -96,10 +96,10 @@ const Portfolio = () => {
   };
 
   const stats = [
-    { number: 500, label: "Projects Completed" },
-    { number: 200, label: "Happy Clients" },
+    { number: 60, label: "Projects Completed" },
+    { number: 60, label: "Happy Clients" },
     { number: 99, label: "Client Satisfaction" },
-    { number: 3, label: "Years Experience" }
+    { number: 4, label: "Years Experience" }
   ];
 
   return (
