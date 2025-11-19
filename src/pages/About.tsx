@@ -44,9 +44,27 @@ const About = () => {
   const teamMembers = [
     {
       name: "Sima Nyamfu",
-      role: "Lead Developer",
+    role: "Founder & CEO",
       description: "Bringing technical expertise and innovative solutions to create fast, secure, and scalable websites.",
       skills: ["Full-Stack Development", "E-commerce", "Performance Optimization"]
+    },
+    {
+      name: "Thabo Mokoena",
+      role: "Lead Designer",
+      description: "Crafting visually stunning and user-friendly designs that captivate audiences and drive engagement.",
+      skills: ["UI/UX Design", "Brand Identity", "Graphic Design"]
+    },
+    {
+      name: "Aisha Patel",
+      role: "Digital Marketing Strategist",
+      description: "Developing effective marketing strategies to boost online presence and grow business reach.",
+      skills: ["SEO", "Content Marketing", "Social Media Management"]
+    },
+    {
+      name: "Lindiwe Dlamini",
+      role: "Project Manager",
+      description: "Ensuring smooth project execution and timely delivery while maintaining clear communication with clients.",
+      skills: ["Agile Methodologies", "Client Communication", "Team Coordination"]
     }
   ];
 
