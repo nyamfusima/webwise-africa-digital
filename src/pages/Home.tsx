@@ -52,7 +52,7 @@ const Home = () => {
   return (
     <Layout>
 
-      {/* HERO SECTION WITH VIDEO + BLUE THEME */}
+      {/* HERO SECTION */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
         
         {/* Video Background */}
@@ -65,14 +65,14 @@ const Home = () => {
           className="absolute inset-0 w-full h-full object-cover"
         />
 
-        {/* Blue Glow Theme */}
+        {/* Blue glow */}
         <div className="absolute inset-0">
           <div className="absolute top-0 -left-10 w-[450px] h-[450px] bg-blue-600 rounded-full mix-blend-soft-light filter blur-3xl opacity-40 animate-pulse"></div>
           <div className="absolute top-10 -right-10 w-[420px] h-[420px] bg-cyan-500 rounded-full mix-blend-soft-light filter blur-3xl opacity-40 animate-pulse animation-delay-2000"></div>
           <div className="absolute bottom-0 left-20 w-[400px] h-[400px] bg-blue-500 rounded-full mix-blend-soft-light filter blur-3xl opacity-30 animate-pulse animation-delay-4000"></div>
         </div>
 
-        {/* Dark Overlay */}
+        {/* Dark overlay */}
         <div className="absolute inset-0 bg-black/60" />
 
         {/* HERO CONTENT */}
@@ -109,7 +109,7 @@ const Home = () => {
 
       </section>
 
-      {/* SERVICES SECTION WITH BLUE GLOW THEME */}
+      {/* SERVICES SECTION */}
       <section className="section-padding bg-black text-white relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute -right-10 top-20 w-[350px] h-[350px] bg-blue-600/20 blur-3xl rounded-full"></div>
@@ -123,14 +123,17 @@ const Home = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            {/* UPDATED TITLE */}
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-white/80 to-white">
               Our Services
             </h2>
-            <p className="text-lg text-white max-w-2xl mx-auto">
+
+            <p className="text-lg text-white/80 max-w-2xl mx-auto">
               Comprehensive digital solutions designed to grow your business online
             </p>
           </motion.div>
 
+          {/* SERVICE CARDS */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {services.map((service, index) => (
               <motion.div
@@ -144,12 +147,16 @@ const Home = () => {
                     <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-all">
                       <service.icon className="w-8 h-8 text-white" />
                     </div>
-                    <h3 className="text-xl font-semibold mb-4">
+
+                    {/* UPDATED CARD TITLE */}
+                    <h3 className="text-xl font-semibold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-white/80 to-white group-hover:from-blue-300 group-hover:to-cyan-300 transition-all">
                       {service.title}
                     </h3>
+
                     <p className="text-white/70 mb-6">
                       {service.description}
                     </p>
+
                     <div className="space-y-2">
                       {service.features.map((feature) => (
                         <div key={feature} className="flex items-center justify-center space-x-2 text-sm">
@@ -175,7 +182,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* The rest of your Testimonials + CTA stays unchanged */}
     </Layout>
   );
 };
@@ -198,4 +204,5 @@ export default Home;
   .animation-delay-4000 { animation-delay: 4s; }
 `}
 </style>
+
 
