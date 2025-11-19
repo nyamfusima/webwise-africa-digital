@@ -14,6 +14,7 @@ import {
 import Layout from "@/components/Layout/Layout";
 import { Button } from "@/components/ui/enhanced-button";
 import { Card, CardContent } from "@/components/ui/card";
+import Founder from "@/assets/sima-ceo.jpg"
 
 const About = () => {
   const cardsGradient = "bg-gradient-to-br from-black via-[#0A1A3A] to-blue-700 text-white shadow-xl border-0";
