@@ -23,7 +23,7 @@ const Services = () => {
   const packages = [
     {
       name: "Starter",
-      price: "From R2,500",
+      price: "From R3,500",
       description: "Perfect for small businesses getting started online",
       features: [
         "3-5 Page Website",
@@ -37,7 +37,7 @@ const Services = () => {
     },
     {
       name: "Standard", 
-      price: "From R3,500",
+      price: "From R5000",
       description: "Ideal for established businesses wanting more features",
       features: [
         "5-10 Page Website",
@@ -52,7 +52,7 @@ const Services = () => {
     },
     {
       name: "Business",
-      price: "From R5,000",
+      price: "From R10,000",
       description: "Complete e-commerce solution for growing businesses",
       features: [
         "Up to 15 Pages",

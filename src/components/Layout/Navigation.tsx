@@ -25,7 +25,7 @@ const Navigation = () => {
         
         {/* Left: Logo */}
         <Link to="/" className="text-2xl font-extrabold tracking-wide">
-          Webwise Africa
+          
         </Link>
 
         {/* Center: Desktop Nav */}
