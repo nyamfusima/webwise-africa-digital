@@ -76,7 +76,7 @@ const Home = () => {
                 size="lg"
                 className="px-4 py-2 text-sm rounded-lg bg-white text-black hover:bg-white"
               >
-                View Our Portfolio
+                Contact Us
               </Button>
 
               {/* White outline button */}
@@ -84,7 +84,7 @@ const Home = () => {
                 size="lg"
                 className="px-4 py-2 text-sm rounded-lg border border-white text-white bg-transparent hover:bg-white hover:text-black"
               >
-                Contact Us
+                View Our Portfolio
               </Button>
             </div>
           </motion.div>
