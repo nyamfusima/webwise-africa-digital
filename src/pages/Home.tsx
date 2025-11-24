@@ -40,14 +40,14 @@ const Home = () => {
           loop
           muted
           playsInline
-          className="absolute inset-0 w-full h-full object-cover object-center min-w-full min-h-full"
+          className="absolute inset-0 w-full h-full object-cover min-w-full min-h-full"
         />
 
-        {/* Blue Glow */}
+        {/* White Glows */}
         <div className="absolute inset-0 max-md:hidden">
-          <div className="absolute top-0 -left-10 w-[450px] h-[450px] bg-blue-600 rounded-full mix-blend-soft-light blur-3xl opacity-40 animate-pulse"></div>
-          <div className="absolute top-10 -right-10 w-[420px] h-[420px] bg-cyan-500 rounded-full mix-blend-soft-light blur-3xl opacity-40 animate-pulse animation-delay-2000"></div>
-          <div className="absolute bottom-0 left-20 w-[400px] h-[400px] bg-blue-500 rounded-full mix-blend-soft-light blur-3xl opacity-30 animate-pulse animation-delay-4000"></div>
+          <div className="absolute top-0 -left-10 w-[450px] h-[450px] bg-white/20 rounded-full mix-blend-soft-light blur-3xl opacity-40 animate-pulse"></div>
+          <div className="absolute top-10 -right-10 w-[420px] h-[420px] bg-white/20 rounded-full mix-blend-soft-light blur-3xl opacity-40 animate-pulse animation-delay-2000"></div>
+          <div className="absolute bottom-0 left-20 w-[400px] h-[400px] bg-white/10 rounded-full mix-blend-soft-light blur-3xl opacity-30 animate-pulse animation-delay-4000"></div>
         </div>
 
         <div className="absolute inset-0 bg-black/60" />
@@ -60,26 +60,31 @@ const Home = () => {
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 leading-tight">
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-600">
+              <span className="block text-white">
                 Digital Solutions That Grow Your Business
               </span>
             </h1>
 
-            {/* SINGLE-LINE TEXT */}
-            <p className="text-lg sm:text-xl mb-8 text-white/80 mx-auto leading-relaxed whitespace-nowrap">
-              Delivering Modern Web Experiences That Help Brands Succeed Online
+            <p className="text-lg sm:text-xl mb-8 text-gray-200 mx-auto leading-relaxed whitespace-nowrap">
+              Start your online growth journey today.
             </p>
 
+            {/* Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Button variant="hero" size="xl" asChild>
-                <Link to="/contact" className="group">
-                  Get Started
-                  <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
-                </Link>
+              {/* Black filled button */}
+              <Button
+                size="lg"
+                className="px-4 py-2 text-sm rounded-lg bg-white text-black hover:bg-white"
+              >
+                View Our Portfolio
               </Button>
 
-              <Button variant="hero-outline" size="xl" asChild>
-                <Link to="/portfolio">View Our Work</Link>
+              {/* White outline button */}
+              <Button
+                size="lg"
+                className="px-4 py-2 text-sm rounded-lg border border-white text-white bg-transparent hover:bg-white hover:text-black"
+              >
+                Contact Us
               </Button>
             </div>
           </motion.div>
@@ -89,8 +94,8 @@ const Home = () => {
       {/* SERVICES SECTION */}
       <section className="section-padding bg-black text-white relative overflow-hidden px-4">
         <div className="absolute inset-0 pointer-events-none max-md:hidden">
-          <div className="absolute -right-10 top-20 w-[350px] h-[350px] bg-blue-600/20 blur-3xl rounded-full"></div>
-          <div className="absolute -left-10 bottom-10 w-[300px] h-[300px] bg-cyan-600/20 blur-3xl rounded-full"></div>
+          <div className="absolute -right-10 top-20 w-[350px] h-[350px] bg-white/10 blur-3xl rounded-full"></div>
+          <div className="absolute -left-10 bottom-10 w-[300px] h-[300px] bg-white/10 blur-3xl rounded-full"></div>
         </div>
 
         <div className="container mx-auto relative z-10">
@@ -100,7 +105,7 @@ const Home = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-white/80 to-white">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-300">
               Our Services
             </h2>
 
@@ -118,24 +123,22 @@ const Home = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
               >
-                <Card className="h-full bg-white/5 backdrop-blur-md border border-white/10 hover:border-blue-500/40 hover:bg-white/10 transition-all duration-300 group hover:scale-105 rounded-2xl">
+                <Card className="h-full bg-white/5 backdrop-blur-md border border-white/10 hover:border-white/40 hover:bg-white/10 transition-all duration-300 group hover:scale-105 rounded-2xl">
                   <CardContent className="p-8 text-center">
-                    <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-all">
+                    <div className="w-16 h-16 bg-gradient-to-br from-white/20 to-white/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-all">
                       <service.icon className="w-8 h-8 text-white" />
                     </div>
 
-                    <h3 className="text-xl font-semibold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-white/80 to-white group-hover:from-blue-300 group-hover:to-cyan-300 transition-all">
+                    <h3 className="text-xl font-semibold mb-4 text-white transition-all">
                       {service.title}
                     </h3>
 
-                    <p className="text-white/70 mb-6">
-                      {service.description}
-                    </p>
+                    <p className="text-white/70 mb-6">{service.description}</p>
 
                     <div className="space-y-2">
                       {service.features.map((feature) => (
                         <div key={feature} className="flex items-center justify-center space-x-2 text-sm">
-                          <CheckCircle className="w-4 h-4 text-blue-400" />
+                          <CheckCircle className="w-4 h-4 text-white" />
                           <span className="text-gray-300">{feature}</span>
                         </div>
                       ))}
@@ -147,7 +150,11 @@ const Home = () => {
           </div>
 
           <div className="text-center mt-12">
-            <Button variant="hero" size="lg" asChild>
+            <Button
+              variant="hero"
+              size="lg"
+              asChild
+            >
               <Link to="/services">
                 View All Services
                 <ArrowRight className="ml-2" />
@@ -174,6 +181,3 @@ export default Home;
   .animation-delay-4000 { animation-delay: 4s; }
 `}
 </style>
-
-
-
