@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowRight, Monitor, Palette, TrendingUp, CheckCircle, Star } from "lucide-react";
+import { ArrowRight, Monitor, Palette, TrendingUp, CheckCircle } from "lucide-react";
 import Layout from "@/components/Layout/Layout";
 import { Button } from "@/components/ui/enhanced-button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -28,67 +28,45 @@ const Home = () => {
     }
   ];
 
-  const testimonials = [
-    {
-      name: "Sarah Johnson",
-      business: "Johnson's Bakery",
-      content: "Webwise Africa transformed our online presence. Our website is beautiful and our sales have increased by 40%.",
-      rating: 5
-    },
-    {
-      name: "David Miller",
-      business: "Miller Construction",
-      content: "Professional service and excellent results. They understood our needs and delivered beyond expectations.",
-      rating: 5
-    },
-    {
-      name: "Lisa van der Merwe",
-      business: "Boutique Florist",
-      content: "The team at Webwise Africa is fantastic. Our new e-commerce site has revolutionized our business.",
-      rating: 5
-    }
-  ];
-
   return (
     <Layout>
-
       {/* HERO SECTION */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
-        
-        {/* Video Background */}
+
+        {/* Video */}
         <video
           src={heroBg}
           autoPlay
           loop
           muted
           playsInline
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover object-center min-w-full min-h-full"
         />
 
-        {/* Blue glow */}
-        <div className="absolute inset-0">
-          <div className="absolute top-0 -left-10 w-[450px] h-[450px] bg-blue-600 rounded-full mix-blend-soft-light filter blur-3xl opacity-40 animate-pulse"></div>
-          <div className="absolute top-10 -right-10 w-[420px] h-[420px] bg-cyan-500 rounded-full mix-blend-soft-light filter blur-3xl opacity-40 animate-pulse animation-delay-2000"></div>
-          <div className="absolute bottom-0 left-20 w-[400px] h-[400px] bg-blue-500 rounded-full mix-blend-soft-light filter blur-3xl opacity-30 animate-pulse animation-delay-4000"></div>
+        {/* Blue Glow */}
+        <div className="absolute inset-0 max-md:hidden">
+          <div className="absolute top-0 -left-10 w-[450px] h-[450px] bg-blue-600 rounded-full mix-blend-soft-light blur-3xl opacity-40 animate-pulse"></div>
+          <div className="absolute top-10 -right-10 w-[420px] h-[420px] bg-cyan-500 rounded-full mix-blend-soft-light blur-3xl opacity-40 animate-pulse animation-delay-2000"></div>
+          <div className="absolute bottom-0 left-20 w-[400px] h-[400px] bg-blue-500 rounded-full mix-blend-soft-light blur-3xl opacity-30 animate-pulse animation-delay-4000"></div>
         </div>
 
-        {/* Dark overlay */}
         <div className="absolute inset-0 bg-black/60" />
 
-        {/* HERO CONTENT */}
-        <div className="container-width text-center text-white relative z-10">
+        {/* Content */}
+        <div className="container mx-auto px-4 text-center text-white relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 leading-tight">
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-600">
                 Digital Solutions That Grow Your Business
               </span>
             </h1>
 
-            <p className="text-xl md:text-lg mb-8 text-white/80 mx-auto leading-relaxed whitespace-nowrap">
+            {/* SINGLE-LINE TEXT */}
+            <p className="text-lg sm:text-xl mb-8 text-white/80 mx-auto leading-relaxed whitespace-nowrap">
               Delivering Modern Web Experiences That Help Brands Succeed Online
             </p>
 
@@ -106,35 +84,33 @@ const Home = () => {
             </div>
           </motion.div>
         </div>
-
       </section>
 
       {/* SERVICES SECTION */}
-      <section className="section-padding bg-black text-white relative overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none">
+      <section className="section-padding bg-black text-white relative overflow-hidden px-4">
+        <div className="absolute inset-0 pointer-events-none max-md:hidden">
           <div className="absolute -right-10 top-20 w-[350px] h-[350px] bg-blue-600/20 blur-3xl rounded-full"></div>
           <div className="absolute -left-10 bottom-10 w-[300px] h-[300px] bg-cyan-600/20 blur-3xl rounded-full"></div>
         </div>
 
-        <div className="container-width relative z-10">
+        <div className="container mx-auto relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            {/* UPDATED TITLE */}
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-white/80 to-white">
               Our Services
             </h2>
 
-            <p className="text-lg text-white/80 max-w-2xl mx-auto">
+            <p className="text-white/80 max-w-xl mx-auto">
               Comprehensive digital solutions designed to grow your business online
             </p>
           </motion.div>
 
-          {/* SERVICE CARDS */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
             {services.map((service, index) => (
               <motion.div
                 key={service.title}
@@ -148,7 +124,6 @@ const Home = () => {
                       <service.icon className="w-8 h-8 text-white" />
                     </div>
 
-                    {/* UPDATED CARD TITLE */}
                     <h3 className="text-xl font-semibold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-white/80 to-white group-hover:from-blue-300 group-hover:to-cyan-300 transition-all">
                       {service.title}
                     </h3>
@@ -181,28 +156,24 @@ const Home = () => {
           </div>
         </div>
       </section>
-
     </Layout>
   );
 };
 
 export default Home;
 
-/* Animations */
+/* animations */
 <style>
 {`
   @keyframes pulse {
     0%, 100% { opacity: .4; }
     50% { opacity: .7; }
   }
-
-  .animate-pulse {
-    animation: pulse 4s ease-in-out infinite;
-  }
-
+  .animate-pulse { animation: pulse 4s ease-in-out infinite; }
   .animation-delay-2000 { animation-delay: 2s; }
   .animation-delay-4000 { animation-delay: 4s; }
 `}
 </style>
+
 
 
