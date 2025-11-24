@@ -91,7 +91,6 @@ const Home = () => {
         </div>
       </section>
 
-      
       {/* ABOUT US SECTION */}
 <section className="section-padding relative overflow-hidden px-4 bg-black text-white">
   <div className="container mx-auto relative z-10 flex flex-col md:flex-row items-center gap-12">
@@ -104,7 +103,7 @@ const Home = () => {
         loop
         muted
         playsInline
-        className="w-full h-full object-cover rounded-2xl border border-white"
+        className="w-full h-full object-cover rounded-2xl"
       />
     </div>
 
@@ -131,6 +130,7 @@ const Home = () => {
     </div>
   </div>
 </section>
+
 
 
       {/* SERVICES SECTION */}
