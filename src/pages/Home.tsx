@@ -74,7 +74,7 @@ const Home = () => {
               {/* Black filled button */}
               <Button
                 size="lg"
-                className="px-4 py-2 text-sm rounded-lg bg-white text-black hover:bg-white"
+                className="px-4 py-2 text-sm rounded-lg border border-white text-white bg-transparent hover:bg-white hover:text-black"
               >
                 Contact Us
               </Button>
@@ -82,7 +82,7 @@ const Home = () => {
               {/* White outline button */}
               <Button
                 size="lg"
-                className="px-4 py-2 text-sm rounded-lg border border-white text-white bg-transparent hover:bg-white hover:text-black"
+                className="px-4 py-2 text-sm rounded-lg bg-white text-black hover:bg-white"
               >
                 View Our Portfolio
               </Button>
