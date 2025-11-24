@@ -95,7 +95,14 @@ const Home = () => {
 <section
   className="section-padding text-white relative overflow-hidden px-4"
   style={{
-    background: "linear-gradient(281deg, #2F356C 0.960607695997807%, #000000 100%)"
+    background: `
+      radial-gradient(circle at 20.666667620340984% 42.000020345052086%, #000000 0%, 17.5%, rgba(0,0,0,0) 35%),
+      radial-gradient(circle at 94.35384114583333% 89.61588541666666%, #000000 0%, 20%, rgba(0,0,0,0) 40%),
+      radial-gradient(circle at 6.503906249999999% 88.037109375%, rgba(111,126,255,0.99) 0%, 25%, rgba(111,126,255,0) 50%),
+      radial-gradient(circle at 6.129557291666667% 14.518229166666666%, #000000 0%, 42%, rgba(0,0,0,0) 70%),
+      radial-gradient(circle at 94.14388020833333% 12.750651041666666%, #000000 0%, 42%, rgba(0,0,0,0) 70%),
+      radial-gradient(circle at 48.9013671875% 49.521484375%, #000000 0%, 100%, rgba(0,0,0,0) 100%)
+    `
   }}
 >
   <div className="absolute inset-0 pointer-events-none max-md:hidden">
@@ -128,7 +135,7 @@ const Home = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: index * 0.2 }}
         >
-          <Card className="h-full bg-white/5 backdrop-blur-md border border-white/10 hover:border-white/40 hover:bg-white/10 transition-all duration-300 group hover:scale-105 rounded-2xl">
+          <Card className="h-full bg-white/5 backdrop-blur-md border border-white hover:border-white/80 hover:bg-white/10 transition-all duration-300 group hover:scale-105 rounded-2xl">
             <CardContent className="p-8 text-center">
               <div className="w-16 h-16 bg-gradient-to-br from-white/20 to-white/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-all">
                 <service.icon className="w-8 h-8 text-white" />
