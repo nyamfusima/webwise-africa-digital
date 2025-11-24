@@ -82,13 +82,13 @@ const Home = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-600">
                 Digital Solutions That Grow Your Business
               </span>
             </h1>
 
-            <p className="text-xl md:text-lg mb-8 text-white/80 max-w-xl mx-auto leading-relaxed">
+            <p className="text-xl md:text-lg mb-8 text-white/80 mx-auto leading-relaxed whitespace-nowrap">
               Delivering Modern Web Experiences That Help Brands Succeed Online
             </p>
 
