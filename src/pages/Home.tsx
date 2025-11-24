@@ -91,6 +91,48 @@ const Home = () => {
         </div>
       </section>
 
+      
+      {/* ABOUT US SECTION */}
+<section className="section-padding relative overflow-hidden px-4 bg-black text-white">
+  <div className="container mx-auto relative z-10 flex flex-col md:flex-row items-center gap-12">
+    
+    {/* Left: Video */}
+    <div className="w-full md:w-1/2">
+      <video
+        src={heroBg} // Replace with your About Us video if different
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="w-full h-full object-cover rounded-2xl border border-white"
+      />
+    </div>
+
+    {/* Right: Text */}
+    <div className="w-full md:w-1/2 text-center md:text-left">
+      <motion.div
+        initial={{ opacity: 0, x: 50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
+          Who We Are
+        </h2>
+        <p className="text-white/80 mb-6 leading-relaxed">
+          We are a remote web design agency focused on building modern, functional websites. Our team values simplicity, creativity, and results. We’re here to bring your digital ideas to life through clean design and smart solutions.
+        </p>
+        <Button
+          size="md"
+          className="px-4 py-2 rounded-lg border border-white text-white hover:bg-white hover:text-black"
+        >
+          About Us
+        </Button>
+      </motion.div>
+    </div>
+  </div>
+</section>
+
+
       {/* SERVICES SECTION */}
 <section
   className="section-padding text-white relative overflow-hidden px-4"
