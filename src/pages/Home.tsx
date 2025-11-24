@@ -92,77 +92,82 @@ const Home = () => {
       </section>
 
       {/* SERVICES SECTION */}
-      <section className="section-padding bg-black text-white relative overflow-hidden px-4">
-        <div className="absolute inset-0 pointer-events-none max-md:hidden">
-          <div className="absolute -right-10 top-20 w-[350px] h-[350px] bg-white/10 blur-3xl rounded-full"></div>
-          <div className="absolute -left-10 bottom-10 w-[300px] h-[300px] bg-white/10 blur-3xl rounded-full"></div>
-        </div>
+<section
+  className="section-padding text-white relative overflow-hidden px-4"
+  style={{
+    background: "linear-gradient(281deg, #2F356C 0.960607695997807%, #000000 100%)"
+  }}
+>
+  <div className="absolute inset-0 pointer-events-none max-md:hidden">
+    <div className="absolute -right-10 top-20 w-[350px] h-[350px] bg-white/10 blur-3xl rounded-full"></div>
+    <div className="absolute -left-10 bottom-10 w-[300px] h-[300px] bg-white/10 blur-3xl rounded-full"></div>
+  </div>
 
-        <div className="container mx-auto relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-300">
-              Our Services
-            </h2>
+  <div className="container mx-auto relative z-10">
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      className="text-center mb-16"
+    >
+      <h2 className="text-3xl md:text-4xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-300">
+        Our Services
+      </h2>
 
-            <p className="text-white/80 max-w-xl mx-auto">
-              Comprehensive digital solutions designed to grow your business online
-            </p>
-          </motion.div>
+      <p className="text-white/80 max-w-xl mx-auto">
+        We’re a creative web design agency that builds modern, user-friendly websites for businesses of all kinds. Our team combines design, development, and digital tools to help brands grow online. We value clarity, functionality, and great design — and this site showcases the services and solutions we deliver to bring your ideas to life.
+      </p>
+    </motion.div>
 
-          {/* Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <motion.div
-                key={service.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-              >
-                <Card className="h-full bg-white/5 backdrop-blur-md border border-white/10 hover:border-white/40 hover:bg-white/10 transition-all duration-300 group hover:scale-105 rounded-2xl">
-                  <CardContent className="p-8 text-center">
-                    <div className="w-16 h-16 bg-gradient-to-br from-white/20 to-white/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-all">
-                      <service.icon className="w-8 h-8 text-white" />
-                    </div>
+    {/* Cards */}
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+      {services.map((service, index) => (
+        <motion.div
+          key={service.title}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: index * 0.2 }}
+        >
+          <Card className="h-full bg-white/5 backdrop-blur-md border border-white/10 hover:border-white/40 hover:bg-white/10 transition-all duration-300 group hover:scale-105 rounded-2xl">
+            <CardContent className="p-8 text-center">
+              <div className="w-16 h-16 bg-gradient-to-br from-white/20 to-white/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-all">
+                <service.icon className="w-8 h-8 text-white" />
+              </div>
 
-                    <h3 className="text-xl font-semibold mb-4 text-white transition-all">
-                      {service.title}
-                    </h3>
+              <h3 className="text-xl font-semibold mb-4 text-white transition-all">
+                {service.title}
+              </h3>
 
-                    <p className="text-white/70 mb-6">{service.description}</p>
+              <p className="text-white/70 mb-6">{service.description}</p>
 
-                    <div className="space-y-2">
-                      {service.features.map((feature) => (
-                        <div key={feature} className="flex items-center justify-center space-x-2 text-sm">
-                          <CheckCircle className="w-4 h-4 text-white" />
-                          <span className="text-gray-300">{feature}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
+              <div className="space-y-2">
+                {service.features.map((feature) => (
+                  <div key={feature} className="flex items-center justify-center space-x-2 text-sm">
+                    <CheckCircle className="w-4 h-4 text-white" />
+                    <span className="text-gray-300">{feature}</span>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        </motion.div>
+      ))}
+    </div>
 
-          <div className="text-center mt-12">
-            <Button
-              variant="hero"
-              size="lg"
-              asChild
-            >
-              <Link to="/services">
-                View All Services
-                <ArrowRight className="ml-2" />
-              </Link>
-            </Button>
-          </div>
-        </div>
-      </section>
+    <div className="text-center mt-12">
+      <Button
+        variant="hero"
+        size="lg"
+        asChild
+      >
+        <Link to="/services">
+          View All Services
+          <ArrowRight className="ml-2" />
+        </Link>
+      </Button>
+    </div>
+  </div>
+</section>
     </Layout>
   );
 };

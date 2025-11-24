@@ -1,83 +1,96 @@
-import { Link } from "react-router-dom";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { useState } from "react";
+import { FaFacebook, FaInstagram, FaTwitter, FaWhatsapp, FaTiktok } from "react-icons/fa";
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
+  const [email, setEmail] = useState("");
+  const [consent, setConsent] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email || !consent) return;
+    // handle newsletter submission logic here
+    console.log("Newsletter submitted:", email);
+    setEmail("");
+    setConsent(false);
+  };
 
   return (
-    <footer className="bg-black text-white">
-      <div className="container-width section-padding">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* Company Info */}
-          <div className="md:col-span-2">
-            <div className="flex items-center space-x-2 mb-4">
-              <span className="text-xl font-bold">Webwise Africa</span>
-            </div>
-            <p className="text-white/80 mb-4 leading-relaxed">
-              Building digital solutions for small businesses across South Africa.
-              We specialize in web design, graphic design, and digital marketing
-              to help your business grow online.
-            </p>
-            <div className="space-y-2">
-              <div className="flex items-center space-x-2 text-sm">
-                <Phone size={16} className="text-accent" />
-                <span>+27 68 156 6790</span>
-              </div>
-              <div className="flex items-center space-x-2 text-sm">
-                <Mail size={16} className="text-accent" />
-                <span>info@webwiseafrica.co.za</span>
-              </div>
-              <div className="flex items-center space-x-2 text-sm">
-                <MapPin size={16} className="text-accent" />
-                <span>South Africa (Remote Team)</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Quick Links */}
-          <div>
-            <h3 className="font-semibold mb-4">Quick Links</h3>
-            <div className="space-y-2">
-              <Link to="/" className="block text-sm text-white/80 hover:text-accent transition-smooth">
-                Home
-              </Link>
-              <Link to="/services" className="block text-sm text-white/80 hover:text-accent transition-smooth">
-                Services
-              </Link>
-              <Link to="/portfolio" className="block text-sm text-white/80 hover:text-accent transition-smooth">
-                Portfolio
-              </Link>
-              <Link to="/about" className="block text-sm text-white/80 hover:text-accent transition-smooth">
-                About
-              </Link>
-              <Link to="/contact" className="block text-sm text-white/80 hover:text-accent transition-smooth">
-                Contact
-              </Link>
-            </div>
-          </div>
-
-          {/* Services */}
-          <div>
-            <h3 className="font-semibold mb-4">Services</h3>
-            <div className="space-y-2 text-sm text-white/80">
-              <p>Web Design</p>
-              <p>Graphic Design</p>
-              <p>Digital Marketing</p>
-              <p>Domain Registration</p>
-              <p>Web Hosting</p>
-              <p>E-commerce Solutions</p>
-            </div>
-          </div>
-        </div>
-
-        <div className="border-t border-white/10 mt-8 pt-8 text-center">
-          <p className="text-sm text-white/70">
-            © {currentYear} Webwise Africa. All rights reserved.
+    <footer className="bg-black text-white px-4 py-12">
+      <div className="container mx-auto flex flex-col md:flex-row justify-between gap-8">
+        
+        {/* Logo & Description */}
+        <div className="flex flex-col gap-4">
+          <h2 className="text-2xl font-bold font-sans">Webwise Africa</h2>
+          <p className="text-gray-300 max-w-xs">
+            Remote agency | Based in Cape Town | Serving clients Nationwide
           </p>
+
+          {/* Social Icons */}
+          <div className="flex gap-4 mt-2">
+            <a href="https://api.whatsapp.com/send/?phone=27681566790" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400">
+              <FaWhatsapp size={20} />
+            </a>
+            <a href="https://www.tiktok.com/@webwiseafrica" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400">
+              <FaTiktok size={20} />
+            </a>
+            <a href="https://x.com/webwiseafrica?s=21" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400">
+              <FaTwitter size={20} />
+            </a>
+            <a href="https://www.instagram.com/webwiseafrica/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400">
+              <FaInstagram size={20} />
+            </a>
+            <a href="https://facebook.com/webwiseafrica" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400">
+              <FaFacebook size={20} />
+            </a>
+          </div>
         </div>
+
+        {/* Quick Links */}
+        <div className="flex flex-col gap-2">
+          <h3 className="font-semibold text-lg">Quick Links</h3>
+          <a href="/about" className="hover:text-gray-400 transition">About</a>
+          <a href="/services" className="hover:text-gray-400 transition">Services</a>
+          <a href="/contact" className="hover:text-gray-400 transition">Contact</a>
+        </div>
+
+        {/* Newsletter Signup */}
+        <div className="flex flex-col gap-4 max-w-xs w-full">
+          <h3 className="font-semibold text-lg">Stay Updated with the Latest</h3>
+          <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+            <input
+              type="email"
+              placeholder="Email*"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              className="px-4 py-2 rounded-lg text-black focus:outline-none"
+            />
+            <label className="flex items-center gap-2 text-gray-300 text-sm">
+              <input
+                type="checkbox"
+                checked={consent}
+                onChange={() => setConsent(!consent)}
+                className="w-4 h-4"
+              />
+              Yes, subscribe me to your newsletter.
+            </label>
+            <button
+              type="submit"
+              className="bg-white text-black px-4 py-2 rounded-lg font-medium hover:bg-gray-300 transition"
+            >
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
+
+      {/* Mobile Bottom Note */}
+      <div className="mt-8 text-center text-gray-500 text-sm md:hidden">
+        Remote agency | Based in Cape Town | Serving clients Nationwide
       </div>
     </footer>
   );
 };
 
 export default Footer;
+
