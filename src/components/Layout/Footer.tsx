@@ -86,7 +86,7 @@ const Footer = () => {
 
       {/* Mobile Bottom Note */}
       <div className="mt-8 text-center text-gray-500 text-sm md:hidden">
-        Remote agency | Based in Cape Town | Serving clients Nationwide
+        Remote agency | Based in Cape Town | Serving clients Worldwide
       </div>
     </footer>
   );

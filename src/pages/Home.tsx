@@ -74,10 +74,13 @@ const Home = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               {/* Black filled button */}
               <Button
+
                 size="lg"
                 className="px-4 py-2 text-sm rounded-lg border border-white text-white bg-transparent hover:bg-white hover:text-black"
               >
+                <Link to="/contact">
                 Contact Us
+                </Link>
               </Button>
 
               {/* White outline button */}
@@ -85,7 +88,9 @@ const Home = () => {
                 size="lg"
                 className="px-4 py-2 text-sm rounded-lg bg-white text-black hover:bg-white"
               >
+                <Link to="/portfolio">
                 View Our Portfolio
+                </Link>
               </Button>
             </div>
           </motion.div>
@@ -115,15 +120,20 @@ const Home = () => {
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8 }}
       >
-        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
+        <h2 className="text-3xl md:text-4xl  mb-6 text-white">
           Who We Are
         </h2>
         <p className="text-white/80 mb-6 leading-relaxed">
-          We are a remote web design agency focused on building modern, functional websites. Our team values simplicity, creativity, and results. We’re here to bring your digital ideas to life through clean design and smart solutions.
+          We are a remote web design agency
+          focused on building modern, functional
+          websites. Our team values simplicity,
+          creativity, and results. We're here to bring
+          your digital ideas to life through clean
+          design amd smart solutions.
         </p>
         <Button
           size="md"
-          className="px-4 py-2 rounded-lg border border-white text-white hover:bg-white hover:text-black"
+          className="px-4 py-2 rounded-lg border border-white text-white bg-black hover:bg-white hover:text-black"
         >
           About Us
         </Button>
@@ -165,7 +175,10 @@ const Home = () => {
       </h2>
 
       <p className="text-white/80 max-w-xl mx-auto">
-        We’re a creative web design agency that builds modern, user-friendly websites for businesses of all kinds. Our team combines design, development, and digital tools to help brands grow online. We value clarity, functionality, and great design — and this site showcases the services and solutions we deliver to bring your ideas to life.
+        We’re a creative web design agency that builds modern, user-friendly
+        websites for businesses of all kinds. Our team combines design, development,
+        and digital tools to help brands grow online. We value clarity, functionality, and
+    great design — and this site showcases the services and solutions we deliver to bring your ideas to life.
       </p>
     </motion.div>
 
@@ -178,7 +191,7 @@ const Home = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: index * 0.2 }}
         >
-          <Card className="h-full bg-white/5 backdrop-blur-md border border-white hover:border-white/80 hover:bg-white/10 transition-all duration-300 group hover:scale-105 rounded-2xl">
+          <Card className="h-full bg-black/5 backdrop-blur-md border border-white hover:border-white/80 hover:bg-white/10 transition-all duration-300 group hover:scale-105 rounded-2xl">
             <CardContent className="p-8 text-center">
               <div className="w-16 h-16 bg-gradient-to-br from-white/20 to-white/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-all">
                 <service.icon className="w-8 h-8 text-white" />
