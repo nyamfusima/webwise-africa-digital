@@ -1,16 +1,36 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/enhanced-button";
-
-// Updated Icons
-import { FaFacebook, FaInstagram, FaLinkedin, FaWhatsapp } from "react-icons/fa";
-import { FaXTwitter, FaTiktok } from "react-icons/fa6";
+import { 
+  FaFacebook, 
+  FaInstagram, 
+  FaLinkedin, 
+  FaWhatsapp, 
+  FaTiktok, 
+  FaXTwitter 
+} from "react-icons/fa6";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+
+  // --- Scroll Hide Navbar ---
+  const [hidden, setHidden] = useState(false);
+
+  useEffect(() => {
+    let lastY = window.scrollY;
+
+    const handleScroll = () => {
+      const currentY = window.scrollY;
+      setHidden(currentY > lastY && currentY > 80); // hide when scrolling down
+      lastY = currentY;
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const navItems = [
     { name: "Home", path: "/" },
@@ -23,14 +43,15 @@ const Navigation = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <nav className="absolute top-0 left-0 w-full z-50 bg-transparent text-white">
+    <motion.nav
+      animate={{ y: hidden ? -90 : 0 }}
+      transition={{ duration: 0.35, ease: "easeOut" }}
+      className="fixed top-0 left-0 w-full z-50 bg-transparent text-white backdrop-blur-lg"
+    >
       <div className="container mx-auto flex items-center justify-between h-16 px-4">
         
-        {/* Logo */}
-        <Link 
-          to="/" 
-          className="text-2xl font-extrabold tracking-wide text-white font-poppins"
-        >
+        {/* Left: Logo */}
+        <Link to="/" className="text-2xl font-bold tracking-wide text-white font-poppins">
           Webwise Africa
         </Link>
 
@@ -41,18 +62,14 @@ const Navigation = () => {
               key={item.name}
               to={item.path}
               className={`text-sm font-medium transition-all relative ${
-                isActive(item.path)
-                  ? "text-white"
-                  : "text-white hover:text-gray-300"
+                isActive(item.path) ? "text-white" : "text-white hover:text-gray-300"
               }`}
             >
               {item.name}
-
               {isActive(item.path) && (
                 <motion.div
                   layoutId="activeNav"
                   className="absolute -bottom-1 left-0 right-0 h-0.5 bg-white rounded-full"
-                  initial={false}
                   transition={{ type: "spring", stiffness: 300, damping: 30 }}
                 />
               )}
@@ -60,21 +77,18 @@ const Navigation = () => {
           ))}
         </div>
 
-        {/* Desktop Social Icons */}
+        {/* Social Icons Desktop */}
         <div className="hidden md:flex items-center space-x-4">
-          <a href="https://api.whatsapp.com/send/?phone=27681566790" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300 transition">
+          <a href="https://api.whatsapp.com/send/?phone=27681566790" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300">
             <FaWhatsapp size={18} />
           </a>
-
-          <a href="https://www.instagram.com/webwiseafrica/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300 transition">
+          <a href="https://www.instagram.com/webwiseafrica/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300">
             <FaInstagram size={18} />
           </a>
-
-          <a href="https://www.tiktok.com/@webwiseafrica" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300 transition">
+          <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300">
             <FaTiktok size={18} />
           </a>
-
-          <a href="https://x.com/webwiseafrica?s=21" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300 transition">
+          <a href="https://x.com/webwiseafrica?s=21" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300">
             <FaXTwitter size={18} />
           </a>
         </div>
@@ -88,7 +102,7 @@ const Navigation = () => {
         </button>
       </div>
 
-      {/* Mobile Navigation */}
+      {/* Mobile Nav */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -109,12 +123,12 @@ const Navigation = () => {
                 >
                   <Link
                     to={item.path}
-                    className={`block py-2 text-base font-medium transition-all ${
+                    onClick={() => setIsOpen(false)}
+                    className={`block py-2 text-base font-medium ${
                       isActive(item.path)
                         ? "text-white"
                         : "text-white hover:text-gray-300"
                     }`}
-                    onClick={() => setIsOpen(false)}
                   >
                     {item.name}
                   </Link>
@@ -123,23 +137,24 @@ const Navigation = () => {
 
               {/* Mobile Social Icons */}
               <div className="flex justify-center space-x-6 pt-4 text-white">
-                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"><FaFacebook /></a>
-                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
-                <a href="https://www.tiktok.com/@webwiseafrica.co.za" target="_blank" rel="noopener noreferrer"><FaTiktok /></a>
-                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
-                <a href="https://x.com/webwiseafrica?s=21" target="_blank" rel="noopener noreferrer"><FaXTwitter /></a>
-                <a href="https://api.whatsapp.com/send/?phone=27681566790" target="_blank" rel="noopener noreferrer"><FaWhatsapp /></a>
+                <a onClick={() => setIsOpen(false)} href="https://facebook.com" target="_blank"><FaFacebook /></a>
+                <a onClick={() => setIsOpen(false)} href="https://instagram.com" target="_blank"><FaInstagram /></a>
+                <a onClick={() => setIsOpen(false)} href="https://linkedin.com" target="_blank"><FaLinkedin /></a>
+                <a onClick={() => setIsOpen(false)} href="https://tiktok.com" target="_blank"><FaTiktok /></a>
+                <a onClick={() => setIsOpen(false)} href="https://x.com" target="_blank"><FaXTwitter /></a>
+                <a onClick={() => setIsOpen(false)} href="https://api.whatsapp.com/send/?phone=27681566790" target="_blank"><FaWhatsapp /></a>
               </div>
 
             </div>
           </motion.div>
         )}
       </AnimatePresence>
-    </nav>
+    </motion.nav>
   );
 };
 
 export default Navigation;
+
 
 
 
