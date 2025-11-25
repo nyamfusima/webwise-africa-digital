@@ -5,6 +5,7 @@ import Layout from "@/components/Layout/Layout";
 import { Button } from "@/components/ui/enhanced-button";
 import { Card, CardContent } from "@/components/ui/card";
 import heroBg from "@/assets/bg-video.mp4";
+import whoBg from "@/assets/who-we-are.mp4"
 
 const Home = () => {
   const services = [
@@ -98,12 +99,12 @@ const Home = () => {
     {/* Left: Video */}
     <div className="w-full md:w-1/2">
       <video
-        src={heroBg} // Replace with your About Us video if different
+        src={whoBg} // section bg
         autoPlay
         loop
         muted
         playsInline
-        className="w-full h-full object-cover rounded-2xl"
+        className="w-full h-full object-cover -2xl"
       />
     </div>
 
