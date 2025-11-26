@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/enhanced-button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import jadoo from "@/assets/jadoo.png";
-import portfolio2 from "@/assets/portfolio-2.jpg";
+import HabourNest from "@/assets/HabourNest.png";
 import portfolio3 from "@/assets/portfolio-3.jpg";
 
 const Portfolio = () => {
@@ -27,10 +27,10 @@ const Portfolio = () => {
     },
     {
       id: 2,
-      title: "TechStart Mobile App",
+      title: "HabourNest Realty",
       category: "Mobile App Design",
       description: "Complete UI/UX design for a South African tech startup's mobile application, focusing on user experience and modern design principles.",
-      image: portfolio2,
+      image: HabourNest,
       tags: ["UI/UX", "Mobile App", "Startup"],
       type: "mobile",
       features: ["User Interface Design", "Prototyping", "User Testing", "Brand Integration"]
@@ -60,7 +60,7 @@ const Portfolio = () => {
       title: "Fitness Pro Gym",
       category: "Fitness & Health",
       description: "Dynamic website for a local gym featuring class schedules, membership plans, and trainer profiles with online booking functionality.",
-      image: portfolio2,
+      image: HabourNest,
       tags: ["Fitness", "Booking System", "Membership"],
       type: "website",
       features: ["Class Schedules", "Online Booking", "Membership Plans", "Trainer Profiles"]
