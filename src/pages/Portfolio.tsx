@@ -8,6 +8,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import jadoo from "@/assets/jadoo.png";
 import HabourNest from "@/assets/HabourNest.png";
+import drivingSchool from "@/assets/driving-school.png";
 import portfolio3 from "@/assets/portfolio-3.jpg";
 
 const Portfolio = () => {
@@ -28,15 +29,25 @@ const Portfolio = () => {
     {
       id: 2,
       title: "HabourNest Realty",
-      category: "Mobile App Design",
-      description: "Complete UI/UX design for a South African tech startup's mobile application, focusing on user experience and modern design principles.",
+      category: "Architecture & Construction",
+      description: "Complete website design for an Australian architectural and construction company. Showcases their projects, services, and decades of experience in building and shaping Australia's development.",
       image: HabourNest,
-      tags: ["UI/UX", "Mobile App", "Startup"],
-      type: "mobile",
-      features: ["User Interface Design", "Prototyping", "User Testing", "Brand Integration"]
+      tags: ["Web Design", "Architecture", "Australia", "Construction"],
+      type: "website",
+      features: ["Project Showcases", "Services Pages", "Responsive Design", "Contact Forms"]
     },
     {
       id: 3,
+      title: "Northern Cape Driving School",
+      category: "Driving School",
+      description: "Dynamic website for a driving school based in Northern Cape, South Africa. Features include online booking, course schedules, and easy contact options for learners.",
+      image: drivingSchool,
+      tags: ["Web Design", "Driving School", "South Africa", "Booking System"],
+      type: "website",
+      features: ["Online Booking", "Course Schedules", "Trainer Profiles", "Contact Forms"]
+    },
+    {
+      id: 4,
       title: "Crafters Corner E-commerce",
       category: "E-commerce Store",
       description: "Full e-commerce solution for a local crafts business, including inventory management, payment processing, and customer accounts.",
@@ -46,7 +57,7 @@ const Portfolio = () => {
       features: ["Product Catalog", "Shopping Cart", "Payment Integration", "Order Management"]
     },
     {
-      id: 4,
+      id: 5,
       title: "Legal Eagles Law Firm",
       category: "Professional Services",
       description: "Professional website for a Johannesburg law firm, showcasing services, team members, and client testimonials with a trustworthy design.",
@@ -54,16 +65,6 @@ const Portfolio = () => {
       tags: ["Professional", "Legal", "Corporate"],
       type: "website",
       features: ["Service Pages", "Team Profiles", "Contact Forms", "SEO Optimized"]
-    },
-    {
-      id: 5,
-      title: "Fitness Pro Gym",
-      category: "Fitness & Health",
-      description: "Dynamic website for a local gym featuring class schedules, membership plans, and trainer profiles with online booking functionality.",
-      image: HabourNest,
-      tags: ["Fitness", "Booking System", "Membership"],
-      type: "website",
-      features: ["Class Schedules", "Online Booking", "Membership Plans", "Trainer Profiles"]
     },
     {
       id: 6,
@@ -77,7 +78,7 @@ const Portfolio = () => {
     }
   ];
 
-  const categories = ["All", "Website", "E-commerce", "Mobile App", "Branding"];
+  const categories = ["All", "Website", "E-commerce", "Mobile App", "Branding", "Driving School", "Architecture & Construction"];
 
   const filteredProjects = selectedCategory === "All"
     ? projects
@@ -107,7 +108,7 @@ const Portfolio = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="section-padding bg-gradient-to-br from-blue-700 via-blue-800 to-blue-900 text-white">
+      <section className="section-padding bg-neutral-900 text-white">
         <div className="container-width text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -129,7 +130,7 @@ const Portfolio = () => {
       </section>
 
       {/* Filter Section */}
-      <section className="py-8 bg-gradient-to-br from-blue-700 via-blue-800 to-blue-900 border-b border-blue-600">
+      <section className="py-8 bg-neutral-900 border-b border-gray-800">
         <div className="container-width">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -155,7 +156,7 @@ const Portfolio = () => {
       </section>
 
       {/* Portfolio Grid */}
-      <section className="section-padding bg-gradient-to-br from-blue-700 via-blue-800 to-blue-900">
+      <section className="section-padding bg-neutral-900">
         <div className="container-width">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredProjects.map((project, index) => {
@@ -224,7 +225,7 @@ const Portfolio = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="section-padding bg-gradient-to-br from-blue-700 via-blue-800 to-blue-900">
+      <section className="section-padding bg-neutral-900">
         <div className="container-width">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Our Impact</h2>
@@ -242,7 +243,7 @@ const Portfolio = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="section-padding bg-gradient-to-br from-blue-700 via-blue-800 to-blue-900 text-white">
+      <section className="section-padding bg-neutral-900 text-white">
         <div className="container-width text-center">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Join Our Success Stories?</h2>
@@ -304,5 +305,7 @@ const Portfolio = () => {
 };
 
 export default Portfolio;
+
+
 
 
