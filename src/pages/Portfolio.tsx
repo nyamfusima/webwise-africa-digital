@@ -6,18 +6,21 @@ import Layout from "@/components/Layout/Layout";
 import { Button } from "@/components/ui/enhanced-button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import portfolio1 from "@/assets/portfolio-1.jpg";
+import jadoo from "@/assets/jadoo.png";
 import portfolio2 from "@/assets/portfolio-2.jpg";
 import portfolio3 from "@/assets/portfolio-3.jpg";
 
 const Portfolio = () => {
+  const [selectedCategory, setSelectedCategory] = React.useState("All");
+  const [selectedProject, setSelectedProject] = React.useState(null);
+
   const projects = [
     {
       id: 1,
-      title: "African Spice Restaurant",
-      category: "Restaurant Website",
+      title: "Jadoo",
+      category: "Travel Agency",
       description: "A modern, responsive website for a local South African restaurant featuring online menu, reservations, and location details.",
-      image: portfolio1,
+      image: jadoo,
       tags: ["Web Design", "Restaurant", "Mobile-First"],
       type: "website",
       features: ["Online Menu", "Reservation System", "Location Integration", "Mobile Optimized"]
@@ -47,7 +50,7 @@ const Portfolio = () => {
       title: "Legal Eagles Law Firm",
       category: "Professional Services",
       description: "Professional website for a Johannesburg law firm, showcasing services, team members, and client testimonials with a trustworthy design.",
-      image: portfolio1,
+      image: jadoo,
       tags: ["Professional", "Legal", "Corporate"],
       type: "website",
       features: ["Service Pages", "Team Profiles", "Contact Forms", "SEO Optimized"]
@@ -75,10 +78,9 @@ const Portfolio = () => {
   ];
 
   const categories = ["All", "Website", "E-commerce", "Mobile App", "Branding"];
-  const [selectedCategory, setSelectedCategory] = React.useState("All");
 
-  const filteredProjects = selectedCategory === "All" 
-    ? projects 
+  const filteredProjects = selectedCategory === "All"
+    ? projects
     : projects.filter(project => {
         if (selectedCategory === "Website") return project.type === "website";
         if (selectedCategory === "E-commerce") return project.type === "ecommerce";
@@ -112,9 +114,7 @@ const Portfolio = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Our Portfolio
-            </h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">Our Portfolio</h1>
             <p className="text-xl mb-8 text-white/90 max-w-3xl mx-auto">
               Explore our recent projects and see how we've helped South African businesses 
               establish their digital presence and grow online.
@@ -138,7 +138,7 @@ const Portfolio = () => {
             transition={{ duration: 0.6 }}
             className="flex flex-wrap justify-center gap-4"
           >
-            {categories.map((category) => (
+            {categories.map(category => (
               <button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
@@ -173,41 +173,36 @@ const Portfolio = () => {
                       <img
                         src={project.image}
                         alt={project.title}
-                        className="w-full h-48 object-cover group-hover:scale-110 transition-smooth duration-500"
+                        className="w-full h-48 object-cover object-top group-hover:scale-110 transition-smooth duration-500"
                       />
                       <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-smooth flex items-center justify-center">
-                        <Button variant="hero" size="sm">
+                        <Button
+                          variant="hero"
+                          size="sm"
+                          onClick={() => setSelectedProject(project)}
+                        >
                           <ExternalLink className="w-4 h-4" />
                         </Button>
                       </div>
                     </div>
                     <CardContent className="p-6">
                       <div className="flex items-center justify-between mb-3">
-                        <Badge variant="secondary" className="text-xs">
-                          {project.category}
-                        </Badge>
+                        <Badge variant="secondary" className="text-xs">{project.category}</Badge>
                         <TypeIcon className="w-5 h-5 text-accent" />
                       </div>
-                      <h3 className="text-xl font-semibold text-white mb-3 group-hover:text-accent transition-smooth">
-                        {project.title}
-                      </h3>
-                      <p className="text-white/80 mb-4 text-sm leading-relaxed">
-                        {project.description}
-                      </p>
+                      <h3 className="text-xl font-semibold text-white mb-3 group-hover:text-accent transition-smooth">{project.title}</h3>
+                      <p className="text-white/80 mb-4 text-sm leading-relaxed">{project.description}</p>
                       
                       <div className="space-y-3 mb-4">
                         <div className="flex flex-wrap gap-2">
-                          {project.tags.map((tag) => (
-                            <Badge key={tag} variant="outline" className="text-xs text-white border-white">
-                              {tag}
-                            </Badge>
+                          {project.tags.map(tag => (
+                            <Badge key={tag} variant="outline" className="text-xs text-white border-white">{tag}</Badge>
                           ))}
                         </div>
-                        
                         <div className="text-sm text-white/70">
                           <p className="font-medium mb-1">Key Features:</p>
                           <ul className="space-y-1">
-                            {project.features.slice(0, 2).map((feature) => (
+                            {project.features.slice(0, 2).map(feature => (
                               <li key={feature} className="flex items-center space-x-2">
                                 <div className="w-1.5 h-1.5 bg-blue-500 rounded-full"></div>
                                 <span>{feature}</span>
@@ -216,7 +211,7 @@ const Portfolio = () => {
                           </ul>
                         </div>
                       </div>
-                      
+
                       <Button variant="secondary" size="sm" className="w-full bg-white text-black border-0 hover:bg-gray-200">
                         View Details
                       </Button>
@@ -232,38 +227,15 @@ const Portfolio = () => {
       {/* Stats Section */}
       <section className="section-padding bg-black">
         <div className="container-width">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Our Impact
-            </h2>
-            <p className="text-lg text-white/70 max-w-2xl mx-auto">
-              Numbers that showcase our commitment to helping South African businesses succeed
-            </p>
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Our Impact</h2>
+            <p className="text-lg text-white/70 max-w-2xl mx-auto">Numbers that showcase our commitment to helping South African businesses succeed</p>
           </motion.div>
-
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="text-center"
-              >
-                <motion.div 
-                  className="text-3xl md:text-4xl font-bold text-blue-500 mb-2"
-                  animate={{ count: [0, stat.number] }}
-                >
-                  {stat.number}+
-                </motion.div>
-                <div className="text-white/80">
-                  {stat.label}
-                </div>
+              <motion.div key={stat.label} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: index * 0.1 }} className="text-center">
+                <motion.div className="text-3xl md:text-4xl font-bold text-blue-500 mb-2">{stat.number}+</motion.div>
+                <div className="text-white/80">{stat.label}</div>
               </motion.div>
             ))}
           </div>
@@ -273,14 +245,8 @@ const Portfolio = () => {
       {/* CTA Section */}
       <section className="section-padding bg-gradient-to-br from-black via-[#0A1A3A] to-blue-700 text-white">
         <div className="container-width text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Ready to Join Our Success Stories?
-            </h2>
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Join Our Success Stories?</h2>
             <p className="text-xl mb-8 text-white/90 max-w-2xl mx-auto">
               Let's create something amazing together. Your business deserves a digital presence that stands out.
             </p>
@@ -298,6 +264,18 @@ const Portfolio = () => {
           </motion.div>
         </div>
       </section>
+
+      {/* Live Preview Modal */}
+      {selectedProject && (
+        <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4">
+          <div className="relative max-w-4xl w-full">
+            <img src={selectedProject.image} alt="Preview" className="rounded-xl w-full object-contain" />
+            <button className="absolute top-3 right-3 bg-white text-black px-3 py-1 rounded" onClick={() => setSelectedProject(null)}>
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </Layout>
   );
 };

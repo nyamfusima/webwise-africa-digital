@@ -5,7 +5,7 @@ import Layout from "@/components/Layout/Layout";
 import { Button } from "@/components/ui/enhanced-button";
 import { Card, CardContent } from "@/components/ui/card";
 import heroBg from "@/assets/bg-video.mp4";
-import whoBg from "@/assets/who-we-are.mp4"
+import whoBg from "@/assets/who-we-are.mp4";
 
 const Home = () => {
   const services = [
