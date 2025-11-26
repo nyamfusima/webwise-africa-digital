@@ -17,13 +17,13 @@ const Portfolio = () => {
   const projects = [
     {
       id: 1,
-      title: "Jadoo",
+      title: "Jadoo Travel Agency",
       category: "Travel Agency",
-      description: "A modern, responsive website for a local South African restaurant featuring online menu, reservations, and location details.",
+      description: "A modern, responsive website for a London-based travel agency. Features include flight and hotel bookings, destination guides, and a mobile-first design to provide an excellent user experience for travelers.",
       image: jadoo,
-      tags: ["Web Design", "Restaurant", "Mobile-First"],
+      tags: ["Web Design", "Travel", "London", "Mobile-First"],
       type: "website",
-      features: ["Online Menu", "Reservation System", "Location Integration", "Mobile Optimized"]
+      features: ["Flight & Hotel Booking", "Destination Guides", "Responsive Design", "Contact & Inquiry Forms"]
     },
     {
       id: 2,
@@ -116,8 +116,7 @@ const Portfolio = () => {
           >
             <h1 className="text-4xl md:text-5xl font-bold mb-6">Our Portfolio</h1>
             <p className="text-xl mb-8 text-white/90 max-w-3xl mx-auto">
-              Explore our recent projects and see how we've helped South African businesses 
-              establish their digital presence and grow online.
+              Explore our recent projects and see how we've helped businesses establish their digital presence.
             </p>
             <Button variant="hero-outline" size="lg" asChild>
               <Link to="/contact">
@@ -130,7 +129,7 @@ const Portfolio = () => {
       </section>
 
       {/* Filter Section */}
-      <section className="py-8 bg-black border-b border-gray-800">
+      <section className="py-8 bg-gradient-to-br from-black via-[#0A1A3A] to-blue-700 border-b border-gray-800">
         <div className="container-width">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -144,8 +143,8 @@ const Portfolio = () => {
                 onClick={() => setSelectedCategory(category)}
                 className={`px-4 py-2 text-sm font-medium rounded-md transition-transform duration-300 ${
                   selectedCategory === category
-                    ? "bg-gradient-to-r from-black via-[#0A1A3A] to-blue-700 text-white shadow-lg transform scale-105"
-                    : "bg-gradient-to-r from-black via-[#0A1A3A] to-blue-700 text-white hover:scale-105"
+                    ? "bg-white text-black shadow-lg transform scale-105"
+                    : "bg-white text-black hover:scale-105"
                 }`}
               >
                 {category}
@@ -156,7 +155,7 @@ const Portfolio = () => {
       </section>
 
       {/* Portfolio Grid */}
-      <section className="section-padding bg-black">
+      <section className="section-padding bg-gradient-to-br from-black via-[#0A1A3A] to-blue-700">
         <div className="container-width">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredProjects.map((project, index) => {
@@ -168,38 +167,38 @@ const Portfolio = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                 >
-                  <Card className="group overflow-hidden hover:shadow-xl transition-smooth hover:scale-105 bg-black border-0 rounded-xl">
+                  <Card className="group overflow-hidden hover:shadow-xl transition-smooth hover:scale-105 bg-white border-0 rounded-xl">
                     <div className="relative overflow-hidden">
                       <img
                         src={project.image}
                         alt={project.title}
                         className="w-full h-48 object-cover object-top group-hover:scale-110 transition-smooth duration-500"
                       />
-                      <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-smooth flex items-center justify-center">
+                      <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-smooth flex items-center justify-center">
                         <Button
                           variant="hero"
                           size="sm"
                           onClick={() => setSelectedProject(project)}
                         >
-                          <ExternalLink className="w-4 h-4" />
+                          <ExternalLink className="w-4 h-4 text-black" />
                         </Button>
                       </div>
                     </div>
                     <CardContent className="p-6">
                       <div className="flex items-center justify-between mb-3">
-                        <Badge variant="secondary" className="text-xs">{project.category}</Badge>
-                        <TypeIcon className="w-5 h-5 text-accent" />
+                        <Badge variant="secondary" className="text-xs bg-gray-200 text-black">{project.category}</Badge>
+                        <TypeIcon className="w-5 h-5 text-black" />
                       </div>
-                      <h3 className="text-xl font-semibold text-white mb-3 group-hover:text-accent transition-smooth">{project.title}</h3>
-                      <p className="text-white/80 mb-4 text-sm leading-relaxed">{project.description}</p>
+                      <h3 className="text-xl font-semibold text-black mb-3 group-hover:text-blue-700 transition-smooth">{project.title}</h3>
+                      <p className="text-black/80 mb-4 text-sm leading-relaxed">{project.description}</p>
                       
                       <div className="space-y-3 mb-4">
                         <div className="flex flex-wrap gap-2">
                           {project.tags.map(tag => (
-                            <Badge key={tag} variant="outline" className="text-xs text-white border-white">{tag}</Badge>
+                            <Badge key={tag} variant="outline" className="text-xs text-black border-black">{tag}</Badge>
                           ))}
                         </div>
-                        <div className="text-sm text-white/70">
+                        <div className="text-sm text-black/70">
                           <p className="font-medium mb-1">Key Features:</p>
                           <ul className="space-y-1">
                             {project.features.slice(0, 2).map(feature => (
@@ -212,7 +211,7 @@ const Portfolio = () => {
                         </div>
                       </div>
 
-                      <Button variant="secondary" size="sm" className="w-full bg-white text-black border-0 hover:bg-gray-200">
+                      <Button variant="secondary" size="sm" className="w-full bg-blue-700 text-white border-0 hover:bg-blue-800" onClick={() => setSelectedProject(project)}>
                         View Details
                       </Button>
                     </CardContent>
@@ -221,20 +220,57 @@ const Portfolio = () => {
               );
             })}
           </div>
+
+          {/* Inline Live Preview */}
+          {selectedProject && (
+            <section className="bg-white/90 py-12 px-4 rounded-xl mt-12 text-black">
+              <div className="container-width mx-auto">
+                <div className="flex flex-col md:flex-row gap-8 items-start">
+                  <img
+                    src={selectedProject.image}
+                    alt={selectedProject.title}
+                    className="rounded-xl w-full md:w-1/2 object-cover"
+                  />
+                  <div className="md:w-1/2">
+                    <h3 className="text-2xl font-bold mb-4">{selectedProject.title}</h3>
+                    <p className="mb-4">{selectedProject.description}</p>
+                    <p className="font-medium mb-2">Key Features:</p>
+                    <ul className="list-disc list-inside mb-4">
+                      {selectedProject.features.map(feature => (
+                        <li key={feature}>{feature}</li>
+                      ))}
+                    </ul>
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {selectedProject.tags.map(tag => (
+                        <Badge key={tag} variant="outline" className="text-xs text-black border-black">{tag}</Badge>
+                      ))}
+                    </div>
+                    <button
+                      className="mt-6 px-4 py-2 bg-blue-700 text-white rounded hover:bg-blue-800"
+                      onClick={() => setSelectedProject(null)}
+                    >
+                      Close Preview
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </section>
+          )}
+
         </div>
       </section>
 
       {/* Stats Section */}
-      <section className="section-padding bg-black">
+      <section className="section-padding bg-gradient-to-br from-black via-[#0A1A3A] to-blue-700">
         <div className="container-width">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Our Impact</h2>
-            <p className="text-lg text-white/70 max-w-2xl mx-auto">Numbers that showcase our commitment to helping South African businesses succeed</p>
+            <p className="text-lg text-white/70 max-w-2xl mx-auto">Numbers that showcase our commitment to helping businesses succeed</p>
           </motion.div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
               <motion.div key={stat.label} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: index * 0.1 }} className="text-center">
-                <motion.div className="text-3xl md:text-4xl font-bold text-blue-500 mb-2">{stat.number}+</motion.div>
+                <motion.div className="text-3xl md:text-4xl font-bold text-white mb-2">{stat.number}+</motion.div>
                 <div className="text-white/80">{stat.label}</div>
               </motion.div>
             ))}
@@ -264,20 +300,9 @@ const Portfolio = () => {
           </motion.div>
         </div>
       </section>
-
-      {/* Live Preview Modal */}
-      {selectedProject && (
-        <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4">
-          <div className="relative max-w-4xl w-full">
-            <img src={selectedProject.image} alt="Preview" className="rounded-xl w-full object-contain" />
-            <button className="absolute top-3 right-3 bg-white text-black px-3 py-1 rounded" onClick={() => setSelectedProject(null)}>
-              Close
-            </button>
-          </div>
-        </div>
-      )}
     </Layout>
   );
 };
 
 export default Portfolio;
+
