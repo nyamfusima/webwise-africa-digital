@@ -85,302 +85,119 @@ const Contact = () => {
   };
 
   const contactInfo = [
-    {
-      icon: Phone,
-      title: "Phone",
-      value: "+27 68 156 6790",
-      description: "Mon-Fri 8:00 AM - 6:00 PM"
-    },
-    {
-      icon: Mail,
-      title: "Email",
-      value: "info@webwiseafrica.co.za",
-      description: "We'll respond within 24 hours"
-    },
-    {
-      icon: MapPin,
-      title: "Location",
-      value: "South Africa",
-      description: "Remote team serving nationwide"
-    },
-    {
-      icon: Clock,
-      title: "Response Time",
-      value: "Within 24 hours",
-      description: "Quick turnaround guaranteed"
-    }
+    { icon: Phone, title: "Phone", value: "+27 68 156 6790", description: "Mon-Fri 8:00 AM - 6:00 PM" },
+    { icon: Mail, title: "Email", value: "info@webwiseafrica.co.za", description: "We'll respond within 24 hours" },
+    { icon: MapPin, title: "Location", value: "South Africa", description: "Remote team serving nationwide" },
+    { icon: Clock, title: "Response Time", value: "Within 24 hours", description: "Quick turnaround guaranteed" }
   ];
 
   const services = [
-    "Web Design",
-    "E-commerce Website",
-    "Graphic Design",
-    "Digital Marketing",
-    "Domain & Hosting",
-    "Website Maintenance",
-    "Other"
+    "Web Design", "E-commerce Website", "Graphic Design", 
+    "Digital Marketing", "Domain & Hosting", "Website Maintenance", "Other"
   ];
 
   return (
     <Layout>
-      {/* Hero Section */}
-      <section className="section-padding bg-gradient-to-br from-black via-[#0A1A3A] to-blue-700 text-white">
+      {/* Hero */}
+      <section className="section-padding bg-black text-white">
         <div className="container-width text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Get In Touch
-            </h1>
-            <p className="text-xl mb-8 text-white/90 max-w-3xl mx-auto">
-              Ready to start your digital journey? We'd love to hear about your project 
-              and discuss how we can help your business grow online.
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">Get In Touch</h1>
+            <p className="text-xl mb-8 text-white/80 max-w-3xl mx-auto">
+              Ready to start your digital journey? We'd love to hear about your project and discuss how we can help your business grow online.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Contact Form & Info Section */}
-      <section className="section-padding bg-black">
+      {/* Contact Form & Info */}
+      <section className="section-padding bg-white text-black">
         <div className="container-width">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-            {/* Contact Form */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              className="lg:col-span-2"
-            >
-              <Card className="rounded-xl border-0 bg-gradient-to-br from-black via-[#0A1A3A] to-blue-700 text-white shadow-xl">
+            {/* Form */}
+            <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} className="lg:col-span-2">
+              <Card className="rounded-xl border shadow-md bg-white text-black">
                 <CardHeader>
                   <CardTitle className="text-2xl flex items-center">
-                    <Send className="w-6 h-6 mr-3 text-blue-300" /> Send Us a Message
+                    <Send className="w-6 h-6 mr-3 text-black" /> Send Us a Message
                   </CardTitle>
-                  <p className="text-white/80">
-                    Fill out the form below and we'll get back to you within 24 hours.
-                  </p>
+                  <p className="text-black/70">Fill out the form below and we'll get back to you within 24 hours.</p>
                 </CardHeader>
                 <CardContent>
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div>
-                        <label htmlFor="name" className="block text-sm font-medium mb-2 text-white">
-                          Full Name *
-                        </label>
-                        <Input
-                          id="name"
-                          name="name"
-                          type="text"
-                          value={formData.name}
-                          onChange={handleInputChange}
-                          placeholder="Your full name"
-                          required
-                          className="bg-white text-black border-0 focus:ring-2 focus:ring-blue-400 transition-smooth"
-                        />
-                      </div>
-                      <div>
-                        <label htmlFor="email" className="block text-sm font-medium mb-2 text-white">
-                          Email Address *
-                        </label>
-                        <Input
-                          id="email"
-                          name="email"
-                          type="email"
-                          value={formData.email}
-                          onChange={handleInputChange}
-                          placeholder="your@email.com"
-                          required
-                          className="bg-white text-black border-0 focus:ring-2 focus:ring-blue-400 transition-smooth"
-                        />
-                      </div>
+                      <InputGroup label="Full Name *" id="name" name="name" value={formData.name} onChange={handleInputChange} placeholder="Your full name" />
+                      <InputGroup label="Email Address *" id="email" name="email" value={formData.email} onChange={handleInputChange} placeholder="your@email.com" type="email" />
                     </div>
-
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <InputGroup label="Phone Number" id="phone" name="phone" value={formData.phone} onChange={handleInputChange} placeholder="+27 XX XXX XXXX" />
                       <div>
-                        <label htmlFor="phone" className="block text-sm font-medium mb-2 text-white">
-                          Phone Number
-                        </label>
-                        <Input
-                          id="phone"
-                          name="phone"
-                          type="tel"
-                          value={formData.phone}
-                          onChange={handleInputChange}
-                          placeholder="+27 XX XXX XXXX"
-                          className="bg-white text-black border-0 focus:ring-2 focus:ring-blue-400 transition-smooth"
-                        />
-                      </div>
-                      <div>
-                        <label htmlFor="service" className="block text-sm font-medium mb-2 text-white">
-                          Service Interested In
-                        </label>
-                        <select
-                          id="service"
-                          name="service"
-                          value={formData.service}
-                          onChange={handleInputChange}
-                          className="w-full px-3 py-2 bg-white text-black border-0 rounded-lg focus:ring-2 focus:ring-blue-400 transition-smooth"
-                        >
+                        <label className="block text-sm font-medium mb-2">{`Service Interested In`}</label>
+                        <select name="service" value={formData.service} onChange={handleInputChange} className="w-full px-3 py-2 border rounded-lg text-black">
                           <option value="">Select a service</option>
-                          {services.map((service) => (
-                            <option key={service} value={service}>{service}</option>
-                          ))}
+                          {services.map(s => <option key={s} value={s}>{s}</option>)}
                         </select>
                       </div>
                     </div>
-
                     <div>
-                      <label htmlFor="message" className="block text-sm font-medium mb-2 text-white">
-                        Message *
-                      </label>
-                      <Textarea
-                        id="message"
-                        name="message"
-                        value={formData.message}
-                        onChange={handleInputChange}
-                        placeholder="Tell us about your project, goals, and any specific requirements..."
-                        rows={6}
-                        required
-                        className="bg-white text-black border-0 resize-none focus:ring-2 focus:ring-blue-400 transition-smooth"
-                      />
+                      <label className="block text-sm font-medium mb-2">Message *</label>
+                      <Textarea name="message" value={formData.message} onChange={handleInputChange} placeholder="Describe your project..." rows={6} className="w-full border rounded-lg p-2 text-black" />
                     </div>
-
                     <div className="flex flex-col sm:flex-row gap-4">
-                      <Button
-                        type="submit"
-                        variant="primary"
-                        size="lg"
-                        disabled={isSubmitting}
-                        className="flex-1"
-                      >
-                        {isSubmitting ? (
-                          <>
-                            <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
-                            Sending...
-                          </>
-                        ) : (
-                          <>
-                            <Send className="w-4 h-4 mr-2" />
-                            Send Message
-                          </>
-                        )}
-                      </Button>
-                      <Button
-                        type="button"
-                        variant="hero"
-                        size="lg"
-                        onClick={handleWhatsApp}
-                        className="flex-1"
-                      >
-                        <MessageSquare className="w-4 h-4 mr-2" />
-                        WhatsApp Us
-                      </Button>
+                      <Button type="submit" variant="primary" size="lg" className="flex-1">{isSubmitting ? "Sending..." : "Send Message"}</Button>
+                      <Button type="button" variant="secondary" size="lg" onClick={handleWhatsApp} className="flex-1">WhatsApp Us</Button>
                     </div>
                   </form>
                 </CardContent>
               </Card>
             </motion.div>
 
-            {/* Contact Info */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="space-y-6"
-            >
-              {contactInfo.map((info) => (
-                <Card key={info.title} className="bg-gradient-to-br from-black via-[#0A1A3A] to-blue-700 text-white rounded-xl border-0 shadow-xl">
+            {/* Info Cards */}
+            <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="space-y-6">
+              {contactInfo.map(info => (
+                <Card key={info.title} className="rounded-xl border shadow-md bg-white text-black">
                   <CardContent className="flex items-start space-x-4">
-                    <div className="w-10 h-10 bg-blue-900/30 rounded-full flex items-center justify-center">
-                      <info.icon className="w-5 h-5 text-blue-300" />
-                    </div>
+                    <div className="w-10 h-10 flex items-center justify-center"><info.icon className="w-5 h-5" /></div>
                     <div>
-                      <h3 className="font-semibold text-white">{info.title}</h3>
-                      <p className="font-medium">{info.value}</p>
-                      <p className="text-white/70 text-sm">{info.description}</p>
+                      <h3 className="font-semibold">{info.title}</h3>
+                      <p>{info.value}</p>
+                      <p className="text-sm text-black/70">{info.description}</p>
                     </div>
                   </CardContent>
                 </Card>
               ))}
-
-              <Card className="bg-gradient-to-br from-black via-[#0A1A3A] to-blue-700 text-white rounded-xl border-0 shadow-xl">
-                <CardContent>
-                  <div className="flex items-center space-x-3 mb-4">
-                    <CheckCircle className="w-6 h-6" />
-                    <h3 className="font-semibold text-lg">Why Choose Us?</h3>
-                  </div>
-                  <ul className="space-y-2 text-sm">
-                    {["Free initial consultation", "Transparent pricing, no hidden costs", "24/7 support after launch", "Local South African expertise"].map(item => (
-                      <li key={item} className="flex items-center space-x-2">
-                        <div className="w-1.5 h-1.5 bg-blue-300 rounded-full"></div>
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-
-              <Card className="bg-gradient-to-br from-black via-[#0A1A3A] to-blue-700 text-white rounded-xl border-0 shadow-xl text-center">
-                <CardContent className="p-6">
-                  <MessageSquare className="w-12 h-12 mx-auto mb-4 text-blue-300" />
-                  <h3 className="font-semibold text-lg mb-2">Quick Response</h3>
-                  <p className="text-sm text-white/80 mb-4">
-                    Need an immediate response? Send us a WhatsApp message for instant communication.
-                  </p>
-                  <Button variant="hero" size="sm" onClick={handleWhatsApp} className="w-full">
-                    <MessageSquare className="w-4 h-4 mr-2" />
-                    Chat on WhatsApp
-                  </Button>
-                </CardContent>
-              </Card>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="section-padding bg-gradient-to-br from-black via-[#0A1A3A] to-blue-700 text-white">
-        <div className="container-width">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Frequently Asked Questions
-            </h2>
-            <p className="text-lg text-white/70 max-w-2xl mx-auto">
-              Quick answers to common questions about our services and process
-            </p>
+      {/* FAQ */}
+      <section className="section-padding bg-white text-black">
+        <div className="container-width text-center mb-12">
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Frequently Asked Questions</h2>
+            <p className="text-lg text-black/70 max-w-2xl mx-auto">Quick answers to common questions about our services and process</p>
           </motion.div>
+        </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
-            {[
-              { question: "How long does it take to build a website?", answer: "Most websites are completed within 2-4 weeks, depending on complexity and content requirements." },
-              { question: "Do you provide ongoing support?", answer: "Yes! All our packages include support ranging from 1-6 months, with ongoing maintenance options available." },
-              { question: "Can you help with domain and hosting?", answer: "Absolutely! We offer domain registration (R90/year) and reliable hosting (R200/month) services." },
-              { question: "Do you work with businesses outside South Africa?", answer: "While we focus on South African businesses, we're open to working with international clients who appreciate our approach." },
-              { question: "What's included in your e-commerce packages?", answer: "Our e-commerce solutions include payment gateway integration, inventory management, customer accounts, and marketing tools." },
-              { question: "Can I update my website myself?", answer: "Yes! We build user-friendly content management systems that allow you to easily update content, images, and more." }
-            ].map((faq, index) => (
-              <motion.div
-                key={faq.question}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-              >
-                <Card className="h-full rounded-xl border-0 shadow-xl bg-gradient-to-br from-black via-[#0A1A3A] to-blue-700 text-white">
-                  <CardContent className="p-6">
-                    <h3 className="font-semibold text-lg mb-3">{faq.question}</h3>
-                    <p className="text-sm text-white/80 leading-relaxed">{faq.answer}</p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+          {[
+            { q: "How long does it take to build a website?", a: "Most websites are completed within 2-4 weeks." },
+            { q: "Do you provide ongoing support?", a: "Yes, we offer support ranging from 1-6 months." },
+            { q: "Can you help with domain and hosting?", a: "Yes, we provide domain registration and hosting services." },
+            { q: "Do you work with businesses outside South Africa?", a: "Yes, we work with international clients." },
+            { q: "What's included in your e-commerce packages?", a: "Payment gateway, inventory management, customer accounts, marketing tools." },
+            { q: "Can I update my website myself?", a: "Yes, we build user-friendly CMS to easily update content." }
+          ].map((faq, i) => (
+            <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: i * 0.1 }}>
+              <Card className="rounded-xl border shadow-md bg-white text-black">
+                <CardContent className="p-6">
+                  <h3 className="font-semibold text-lg mb-3">{faq.q}</h3>
+                  <p className="text-sm text-black/70">{faq.a}</p>
+                </CardContent>
+              </Card>
+            </motion.div>
+          ))}
         </div>
       </section>
     </Layout>
@@ -388,5 +205,14 @@ const Contact = () => {
 };
 
 export default Contact;
+
+// Helper for input groups
+const InputGroup = ({ label, id, name, value, onChange, placeholder, type = "text" }: any) => (
+  <div>
+    <label htmlFor={id} className="block text-sm font-medium mb-2">{label}</label>
+    <Input id={id} name={name} type={type} value={value} onChange={onChange} placeholder={placeholder} className="w-full border rounded-lg p-2 text-black" />
+  </div>
+);
+
 
 
