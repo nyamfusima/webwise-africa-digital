@@ -7,17 +7,16 @@ import {
   Zap, 
   MapPin, 
   Clock, 
-  Award,
+  Globe,
   ArrowRight,
   CheckCircle
 } from "lucide-react";
 import Layout from "@/components/Layout/Layout";
 import { Button } from "@/components/ui/enhanced-button";
 import { Card, CardContent } from "@/components/ui/card";
-import Founder from "@/assets/sima-ceo.jpg"
 
 const About = () => {
-  const cardsGradient = "bg-gradient-to-br from-black via-[#0A1A3A] to-blue-700 text-white shadow-xl border-0";
+  const cardsGradient = "bg-gradient-to-br from-blue-500 via-blue-600 to-blue-700 text-white shadow-xl border-0";
 
   const values = [
     {
@@ -45,7 +44,7 @@ const About = () => {
   const teamMembers = [
     {
       name: "Sima Nyamfu",
-    role: "Founder & CEO",
+      role: "Founder & CEO",
       description: "Bringing technical expertise and innovative solutions to create fast, secure, and scalable websites.",
       skills: ["Full-Stack Development", "E-commerce", "Performance Optimization"]
     },
@@ -70,18 +69,20 @@ const About = () => {
   ];
 
   const achievements = [
-    { year: "2021", title: "Company Founded", description: "Helping South African small businesses succeed online." },
-    { year: "2022", title: "100+ Projects", description: "Served over 100 local businesses successfully." },
-    { year: "2023", title: "Award Recognition", description: "Recognized as 'Best Small Business Digital Agency' by SA Business Awards." },
-    { year: "2024", title: "60+ Clients", description: "Serving businesses across South Africa." }
+    { year: "2021", title: "Company Founded", description: "Webwise Africa officially launched, focusing on helping SMEs build an online presence." },
+    { year: "2022", title: "80+ Projects", description: "Completed over 80 websites for local businesses across South Africa." },
+    { year: "2023", title: "International Expansion", description: "Worked with clients from North America, Australia, and Europe — including London." },
+    { year: "2024", title: "Growing Client Base", description: "Expanded our portfolio and continued delivering high-performance digital solutions." }
   ];
 
   return (
     <Layout>
+
       {/* HERO SECTION */}
-      <section className="section-padding bg-gradient-to-br from-black via-[#0A1A3A] to-blue-700 text-white">
+      <section className="section-padding bg-black text-white">
         <div className="container-width">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
@@ -90,19 +91,20 @@ const About = () => {
               <h1 className="text-4xl md:text-5xl font-extrabold mb-6">
                 About Webwise Africa
               </h1>
-              <p className="text-xl mb-8 text-white/90 leading-relaxed">
+              <p className="text-xl mb-8 text-gray-300 leading-relaxed">
                 We are a passionate team of digital professionals dedicated to helping 
-                South African small and medium businesses thrive online. We combine creativity, 
-                technical expertise, and local market understanding to deliver high-quality solutions.
+                businesses grow online. With a blend of creativity, technology, and strategy,
+                we deliver modern digital solutions that produce real results.
               </p>
+
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button variant="hero-outline" size="lg" asChild>
+                <Button className="bg-gradient-to-br from-blue-500 via-blue-600 to-blue-700 text-white hover:brightness-110 transition-all" size="lg" asChild>
                   <Link to="/contact">
                     Work With Us
                     <ArrowRight className="ml-2" />
                   </Link>
                 </Button>
-                <Button variant="hero-outline" size="lg" asChild>
+                <Button className="bg-gradient-to-br from-blue-500 via-blue-600 to-blue-700 text-white hover:brightness-110 transition-all" size="lg" asChild>
                   <Link to="/portfolio">View Our Work</Link>
                 </Button>
               </div>
@@ -116,65 +118,71 @@ const About = () => {
               <div className="bg-black/40 backdrop-blur-sm rounded-2xl p-8 shadow-xl">
                 <div className="grid grid-cols-2 gap-6 text-center text-white">
                   <div>
-                    <div className="text-3xl font-bold text-blue-400 mb-2">60+</div>
+                    <div className="text-3xl font-bold text-gray-100 mb-2">80+</div>
                     <div>Projects Completed</div>
                   </div>
                   <div>
-                    <div className="text-3xl font-bold text-blue-400 mb-2">4+</div>
+                    <div className="text-3xl font-bold text-gray-100 mb-2">4+</div>
                     <div>Years Experience</div>
                   </div>
                   <div>
-                    <div className="text-3xl font-bold text-blue-400 mb-2">99%</div>
+                    <div className="text-3xl font-bold text-gray-100 mb-2">99%</div>
                     <div>Client Satisfaction</div>
                   </div>
                   <div>
-                    <div className="text-3xl font-bold text-blue-400 mb-2">24/7</div>
+                    <div className="text-3xl font-bold text-gray-100 mb-2">24/7</div>
                     <div>Support Available</div>
                   </div>
                 </div>
               </div>
             </motion.div>
+
           </div>
         </div>
       </section>
 
-      {/* Our Story */}
+      {/* OUR STORY */}
       <section className="section-padding bg-black">
         <div className="container-width grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Our Story</h2>
-            <div className="space-y-4 text-white/90 leading-relaxed">
+
+            <div className="space-y-4 text-gray-300 leading-relaxed">
               <p>
-                Webwise Africa was born from a simple observation: many South African small business owners had amazing products 
-                and services but struggled to establish a professional online presence.
+                Webwise Africa began with a simple mission — to give South African small 
+                businesses the professional online presence they deserve.
               </p>
               <p>
-                Founded in 2021, we provide affordable, professional digital solutions tailored for small and medium businesses.
+                Founded in 2021, we focused on affordable and high-quality websites tailored 
+                for growing SMEs.
               </p>
               <p>
-                Today, we proudly serve businesses across South Africa, from restaurants and retail stores to professional services.
+                Over time, we expanded beyond local clients and now work with businesses 
+                around the world, including North America, Australia, and Europe.
               </p>
             </div>
 
             <div className="mt-8 space-y-3">
               {[
                 "Remote team across South Africa",
-                "Focus on small & medium businesses",
-                "Affordable, professional solutions",
-                "Local market understanding"
+                "Worked with global businesses",
+                "Affordable and professional services",
+                "Trusted by SMEs and professionals"
               ].map(point => (
                 <div key={point} className="flex items-center space-x-3">
-                  <CheckCircle className="w-5 h-5 text-blue-400 flex-shrink-0" />
-                  <span className="text-white">{point}</span>
+                  <CheckCircle className="w-5 h-5 text-gray-400 flex-shrink-0" />
+                  <span className="text-gray-300">{point}</span>
                 </div>
               ))}
             </div>
           </motion.div>
 
+          {/* RIGHT SIDE CARDS */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -185,38 +193,39 @@ const About = () => {
               icon: MapPin,
               title: "Remote Team",
               subtitle: "Based across South Africa",
-              description: "Our distributed team allows us to serve clients nationwide while keeping overhead costs low."
+              description: "Our distributed structure allows us to work efficiently and serve clients nationwide."
             },{
               icon: Clock,
-              title: "Quick Turnaround",
-              subtitle: "2-4 week delivery",
-              description: "Our streamlined process ensures your website is live and generating results quickly."
+              title: "Fast Delivery",
+              subtitle: "2–4 week turnaround",
+              description: "A smooth and streamlined process to get your website live quickly."
             },{
-              icon: Award,
-              title: "Award Winning",
-              subtitle: "Recognized excellence",
-              description: "Our commitment to quality has been recognized by industry peers and business organizations across South Africa."
+              icon: Globe,
+              title: "Global Clients",
+              subtitle: "Serving worldwide markets",
+              description: "We’ve proudly worked with companies in North America, Australia, and Europe including London."
             }].map(item => (
               <Card key={item.title} className={`${cardsGradient} transition-smooth rounded-xl`}>
                 <CardContent className="p-6">
                   <div className="flex items-center space-x-4 mb-4">
                     <div className="w-12 h-12 bg-blue-600/20 rounded-full flex items-center justify-center">
-                      <item.icon className="w-6 h-6 text-blue-300" />
+                      <item.icon className="w-6 h-6 text-white" />
                     </div>
                     <div>
                       <h3 className="font-semibold text-white">{item.title}</h3>
-                      <p className="text-sm text-blue-200">{item.subtitle}</p>
+                      <p className="text-sm text-white/80">{item.subtitle}</p>
                     </div>
                   </div>
-                  <p className="text-sm text-blue-100">{item.description}</p>
+                  <p className="text-sm text-white/80">{item.description}</p>
                 </CardContent>
               </Card>
             ))}
           </motion.div>
+
         </div>
       </section>
 
-      {/* Values Section */}
+      {/* VALUES */}
       <section className="section-padding bg-black">
         <div className="container-width">
           <motion.div
@@ -226,8 +235,8 @@ const About = () => {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Our Values</h2>
-            <p className="text-lg text-blue-200 max-w-2xl mx-auto">
-              These core principles guide everything we do and shape how we work with our clients
+            <p className="text-lg text-white/80 max-w-2xl mx-auto">
+              The principles that guide every decision and project we take on
             </p>
           </motion.div>
 
@@ -242,10 +251,10 @@ const About = () => {
                 <Card className={`${cardsGradient} text-center hover:scale-105 transition-smooth rounded-xl`}>
                   <CardContent className="p-6">
                     <div className="w-16 h-16 bg-blue-600/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <value.icon className="w-8 h-8 text-blue-300" />
+                      <value.icon className="w-8 h-8 text-white" />
                     </div>
                     <h3 className="text-lg font-semibold text-white mb-3">{value.title}</h3>
-                    <p className="text-sm text-blue-100 leading-relaxed">{value.description}</p>
+                    <p className="text-sm text-white/80 leading-relaxed">{value.description}</p>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -254,55 +263,7 @@ const About = () => {
         </div>
       </section>
 
-      {/* Team Section */}
-      <section className="section-padding bg-black">
-        <div className="container-width">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Meet Our Team</h2>
-            <p className="text-lg text-blue-200 max-w-2xl mx-auto">
-              The talented professionals behind Webwise Africa's success
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {teamMembers.map((member, index) => (
-              <motion.div
-                key={member.name}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-              >
-                <Card className={`${cardsGradient} text-center rounded-xl`}>
-                  <CardContent className="p-8">
-                    <div className="w-24 h-24 bg-gradient-to-br from-black via-[#0A1A3A] to-blue-700 rounded-full mx-auto mb-6 flex items-center justify-center">
-                      <span className="text-2xl font-bold text-white">
-                        {member.name.split(' ').map(n => n[0]).join('')}
-                      </span>
-                    </div>
-                    <h3 className="text-xl font-semibold text-white mb-2">{member.name}</h3>
-                    <p className="text-blue-300 font-medium mb-4">{member.role}</p>
-                    <p className="text-sm text-blue-100 mb-6 leading-relaxed">{member.description}</p>
-                    <div className="flex flex-wrap justify-center gap-2">
-                      {member.skills.map(skill => (
-                        <span key={skill} className="px-3 py-1 bg-blue-600/20 text-blue-100 rounded-full text-xs font-medium">
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Timeline Section */}
+      {/* TIMELINE */}
       <section className="section-padding bg-black">
         <div className="container-width">
           <motion.div
@@ -312,13 +273,13 @@ const About = () => {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Our Journey</h2>
-            <p className="text-lg text-blue-200 max-w-2xl mx-auto">
-              Key milestones in our mission to help South African businesses succeed online
+            <p className="text-lg text-white/80 max-w-2xl mx-auto">
+              Milestones from our beginning to today
             </p>
           </motion.div>
 
           <div className="max-w-4xl mx-auto relative">
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-blue-400/20 rounded-full"></div>
+            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-white/20 rounded-full"></div>
 
             <div className="space-y-12">
               {achievements.map((achievement, index) => (
@@ -332,14 +293,14 @@ const About = () => {
                   <div className={`w-1/2 ${index % 2 === 0 ? 'pr-8 text-right' : 'pl-8 text-left'}`}>
                     <Card className={`${cardsGradient} rounded-xl`}>
                       <CardContent className="p-6">
-                        <div className="text-2xl font-bold text-blue-400 mb-2">{achievement.year}</div>
+                        <div className="text-2xl font-bold text-white mb-2">{achievement.year}</div>
                         <h3 className="text-lg font-semibold text-white mb-2">{achievement.title}</h3>
-                        <p className="text-sm text-blue-100">{achievement.description}</p>
+                        <p className="text-sm text-white/80">{achievement.description}</p>
                       </CardContent>
                     </Card>
                   </div>
 
-                  <div className="relative z-10 w-6 h-6 bg-blue-400 rounded-full shadow-lg"></div>
+                  <div className="relative z-10 w-6 h-6 bg-white/70 rounded-full shadow-lg"></div>
                   <div className="w-1/2"></div>
                 </motion.div>
               ))}
@@ -348,8 +309,8 @@ const About = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="section-padding bg-gradient-to-br from-black via-[#0A1A3A] to-blue-700 text-white">
+      {/* CTA */}
+      <section className="section-padding bg-black text-white">
         <div className="container-width text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -357,27 +318,33 @@ const About = () => {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Work Together?</h2>
-            <p className="text-xl mb-8 text-white/90 max-w-2xl mx-auto">
-              Let's discuss how we can help your business establish a strong digital presence 
-              and achieve your online goals.
+            <p className="text-xl mb-8 text-white/80 max-w-2xl mx-auto">
+              Let’s discuss how we can help your business thrive online with a clean, modern, and 
+              high-performance digital presence.
             </p>
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="hero" size="xl" asChild>
+              <Button className="bg-gradient-to-br from-blue-500 via-blue-600 to-blue-700 text-white hover:brightness-110 transition-all" size="xl" asChild>
                 <Link to="/contact">
                   Get In Touch
                   <ArrowRight className="ml-2" />
                 </Link>
               </Button>
-              <Button variant="hero-outline" size="xl" asChild>
+              <Button className="bg-gradient-to-br from-blue-500 via-blue-600 to-blue-700 text-white hover:brightness-110 transition-all" size="xl" asChild>
                 <Link to="/services">View Services</Link>
               </Button>
             </div>
+
           </motion.div>
         </div>
       </section>
+
     </Layout>
   );
 };
 
 export default About;
+
+
+
 
