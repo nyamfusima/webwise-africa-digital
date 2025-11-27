@@ -13,7 +13,7 @@ import portfolio3 from "@/assets/portfolio-3.jpg";
 
 const Portfolio = () => {
   const [selectedCategory, setSelectedCategory] = React.useState("All");
-  const [selectedProject, setSelectedProject] = React.useState(null);
+  const [selectedProject, setSelectedProject] = React.useState<null | any>(null);
 
   const projects = [
     {
@@ -22,7 +22,6 @@ const Portfolio = () => {
       category: "Travel Agency",
       description: "A modern, responsive website for a London-based travel agency. Features include flight and hotel bookings, destination guides, and a mobile-first design to provide an excellent user experience for travelers.",
       image: jadoo,
-      tags: ["Web Design", "Travel", "London", "Mobile-First"],
       type: "website",
       features: ["Flight & Hotel Booking", "Destination Guides", "Responsive Design", "Contact & Inquiry Forms"]
     },
@@ -32,7 +31,6 @@ const Portfolio = () => {
       category: "Architecture & Construction",
       description: "Complete website design for an Australian architectural and construction company. Showcases their projects, services, and decades of experience in building and shaping Australia's development.",
       image: HabourNest,
-      tags: ["Web Design", "Architecture", "Australia", "Construction"],
       type: "website",
       features: ["Project Showcases", "Services Pages", "Responsive Design", "Contact Forms"]
     },
@@ -42,7 +40,6 @@ const Portfolio = () => {
       category: "Driving School",
       description: "Dynamic website for a driving school based in Northern Cape, South Africa. Features include online booking, course schedules, and easy contact options for learners.",
       image: drivingSchool,
-      tags: ["Web Design", "Driving School", "South Africa", "Booking System"],
       type: "website",
       features: ["Online Booking", "Course Schedules", "Trainer Profiles", "Contact Forms"]
     },
@@ -52,7 +49,6 @@ const Portfolio = () => {
       category: "E-commerce Store",
       description: "Full e-commerce solution for a local crafts business, including inventory management, payment processing, and customer accounts.",
       image: portfolio3,
-      tags: ["E-commerce", "Online Store", "Payment Gateway"],
       type: "ecommerce",
       features: ["Product Catalog", "Shopping Cart", "Payment Integration", "Order Management"]
     },
@@ -62,7 +58,6 @@ const Portfolio = () => {
       category: "Professional Services",
       description: "Professional website for a Johannesburg law firm, showcasing services, team members, and client testimonials with a trustworthy design.",
       image: jadoo,
-      tags: ["Professional", "Legal", "Corporate"],
       type: "website",
       features: ["Service Pages", "Team Profiles", "Contact Forms", "SEO Optimized"]
     },
@@ -72,7 +67,6 @@ const Portfolio = () => {
       category: "Garden Center",
       description: "Beautiful e-commerce site for a plant nursery with plant care guides, online ordering, and delivery scheduling.",
       image: portfolio3,
-      tags: ["E-commerce", "Plants", "Delivery"],
       type: "ecommerce",
       features: ["Plant Catalog", "Care Guides", "Delivery Scheduling", "Customer Reviews"]
     }
@@ -108,8 +102,8 @@ const Portfolio = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="section-padding bg-neutral-900 text-white">
-        <div className="container-width text-center">
+      <section className="section-padding bg-black text-white">
+        <div className="container mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -119,7 +113,7 @@ const Portfolio = () => {
             <p className="text-xl mb-8 text-white/90 max-w-3xl mx-auto">
               Explore our recent projects and see how we've helped businesses establish their digital presence and grow online.
             </p>
-            <Button variant="hero-outline" size="lg" asChild>
+            <Button variant="hero" size="lg" asChild>
               <Link to="/contact">
                 Start Your Project
                 <ArrowRight className="ml-2" />
@@ -130,8 +124,8 @@ const Portfolio = () => {
       </section>
 
       {/* Filter Section */}
-      <section className="py-8 bg-neutral-900 border-b border-gray-800">
-        <div className="container-width">
+      <section className="py-8 bg-black border-b border-gray-800">
+        <div className="container mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -144,8 +138,8 @@ const Portfolio = () => {
                 onClick={() => setSelectedCategory(category)}
                 className={`px-4 py-2 text-sm font-medium rounded-md transition-transform duration-300 ${
                   selectedCategory === category
-                    ? "bg-white text-black shadow-lg transform scale-105"
-                    : "bg-white text-black hover:scale-105"
+                    ? "bg-blue-600 text-white shadow-lg transform scale-105"
+                    : "bg-blue-500 text-white hover:scale-105"
                 }`}
               >
                 {category}
@@ -156,8 +150,8 @@ const Portfolio = () => {
       </section>
 
       {/* Portfolio Grid */}
-      <section className="section-padding bg-neutral-900">
-        <div className="container-width">
+      <section className="section-padding bg-black text-white">
+        <div className="container mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredProjects.map((project, index) => {
               const TypeIcon = getTypeIcon(project.type);
@@ -168,14 +162,15 @@ const Portfolio = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                 >
-                  <Card className="group overflow-hidden hover:shadow-xl transition-smooth hover:scale-105 bg-white border-0 rounded-xl">
+                  <Card className="group overflow-hidden hover:shadow-xl transition-transform hover:scale-105 bg-black/5 border border-white rounded-xl">
                     <div className="relative overflow-hidden">
                       <img
                         src={project.image}
                         alt={project.title}
-                        className="w-full h-48 object-cover object-top group-hover:scale-110 transition-smooth duration-500"
+                        loading="lazy"
+                        className="w-full h-48 object-cover object-top group-hover:scale-110 transition-all duration-500"
                       />
-                      <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-smooth flex items-center justify-center">
+                      <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-all flex items-center justify-center">
                         <Button
                           variant="hero"
                           size="sm"
@@ -185,34 +180,27 @@ const Portfolio = () => {
                         </Button>
                       </div>
                     </div>
-                    <CardContent className="p-6">
+                    <CardContent className="p-6 text-white">
                       <div className="flex items-center justify-between mb-3">
-                        <Badge variant="secondary" className="text-xs">{project.category}</Badge>
-                        <TypeIcon className="w-5 h-5 text-black" />
+                        <Badge variant="secondary" className="text-xs border-white text-white">{project.category}</Badge>
+                        <TypeIcon className="w-5 h-5 text-white" />
                       </div>
-                      <h3 className="text-xl font-semibold text-black mb-3 group-hover:text-blue-700 transition-smooth">{project.title}</h3>
-                      <p className="text-black/80 mb-4 text-sm leading-relaxed">{project.description}</p>
+                      <h3 className="text-xl font-semibold mb-3 group-hover:text-blue-400 transition-all">{project.title}</h3>
+                      <p className="text-white/80 mb-4 text-sm leading-relaxed">{project.description}</p>
                       
-                      <div className="space-y-3 mb-4">
-                        <div className="flex flex-wrap gap-2">
-                          {project.tags.map(tag => (
-                            <Badge key={tag} variant="outline" className="text-xs text-black border-black">{tag}</Badge>
+                      <div className="text-sm text-white/70 mb-4">
+                        <p className="font-medium mb-1">Key Features:</p>
+                        <ul className="space-y-1">
+                          {project.features.slice(0, 2).map(feature => (
+                            <li key={feature} className="flex items-center space-x-2">
+                              <div className="w-1.5 h-1.5 bg-blue-500 rounded-full"></div>
+                              <span>{feature}</span>
+                            </li>
                           ))}
-                        </div>
-                        <div className="text-sm text-black/70">
-                          <p className="font-medium mb-1">Key Features:</p>
-                          <ul className="space-y-1">
-                            {project.features.slice(0, 2).map(feature => (
-                              <li key={feature} className="flex items-center space-x-2">
-                                <div className="w-1.5 h-1.5 bg-blue-700 rounded-full"></div>
-                                <span>{feature}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
+                        </ul>
                       </div>
 
-                      <Button variant="secondary" size="sm" className="w-full bg-blue-700 text-white border-0 hover:bg-blue-800">
+                      <Button variant="hero" size="sm" className="w-full bg-gradient-to-r from-blue-500 to-blue-700 text-white border-0 hover:from-blue-600 hover:to-blue-800">
                         View Details
                       </Button>
                     </CardContent>
@@ -225,8 +213,8 @@ const Portfolio = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="section-padding bg-neutral-900">
-        <div className="container-width">
+      <section className="section-padding bg-black text-white">
+        <div className="container mx-auto">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Our Impact</h2>
             <p className="text-lg text-white/70 max-w-2xl mx-auto">Numbers that showcase our commitment to helping businesses succeed</p>
@@ -243,8 +231,8 @@ const Portfolio = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="section-padding bg-neutral-900 text-white">
-        <div className="container-width text-center">
+      <section className="section-padding bg-black text-white">
+        <div className="container mx-auto text-center">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Join Our Success Stories?</h2>
             <p className="text-xl mb-8 text-white/90 max-w-2xl mx-auto">
@@ -271,18 +259,18 @@ const Portfolio = () => {
           className="fixed inset-0 bg-black/80 flex items-start justify-center z-50 overflow-auto py-10 px-4"
           onClick={(e) => e.target === e.currentTarget && setSelectedProject(null)}
         >
-          <div className="relative max-w-4xl w-full bg-white rounded-xl p-6 shadow-lg">
-            <h2 className="text-2xl font-bold mb-4 text-black">{selectedProject.title}</h2>
+          <div className="relative max-w-4xl w-full bg-black/95 rounded-xl p-6 shadow-lg">
+            <h2 className="text-2xl font-bold mb-4 text-white">{selectedProject.title}</h2>
             <img
               src={selectedProject.image}
               alt={selectedProject.title}
               className="rounded-lg w-full object-contain mb-4"
             />
-            <p className="text-black mb-4">{selectedProject.description}</p>
+            <p className="text-white mb-4">{selectedProject.description}</p>
 
             <div className="mb-4">
-              <h3 className="font-semibold text-black mb-2">Key Features:</h3>
-              <ul className="list-disc list-inside text-black">
+              <h3 className="font-semibold text-white mb-2">Key Features:</h3>
+              <ul className="list-disc list-inside text-white">
                 {selectedProject.features.map((feature) => (
                   <li key={feature}>{feature}</li>
                 ))}
@@ -290,9 +278,9 @@ const Portfolio = () => {
             </div>
 
             <Button
-              variant="secondary"
+              variant="hero"
               size="sm"
-              className="bg-blue-700 text-white hover:bg-blue-800"
+              className="bg-gradient-to-r from-blue-500 to-blue-700 text-white hover:from-blue-600 hover:to-blue-800"
               onClick={() => setSelectedProject(null)}
             >
               Close
@@ -305,6 +293,8 @@ const Portfolio = () => {
 };
 
 export default Portfolio;
+
+
 
 
 
