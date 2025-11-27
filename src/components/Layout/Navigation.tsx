@@ -48,13 +48,14 @@ const Navigation = () => {
       <div className="container mx-auto flex items-center justify-between h-16 px-4">
         
         {/* Logo */}
-        <Link to="/" className="flex items-center">
-          <img 
-            src={favicon} 
-            alt="Webwise Africa Logo" 
-            className="h-10 w-auto object-contain"
-          />
-        </Link>
+<Link to="/" className="flex items-center">
+  <img 
+    src={favicon} 
+    alt="Webwise Africa Logo" 
+    className="h-20 w-auto object-contain" // <-- enlarged from h-10 to h-20
+  />
+</Link>
+
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center space-x-8">
